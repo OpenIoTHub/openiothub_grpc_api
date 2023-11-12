@@ -1,6 +1,6 @@
-module github.com/OpenIoTHub/gateway-grpc-api
+module github.com/OpenIoTHub/openiothub-grpc-api
 
-go 1.14
+go 1.21
 
 require (
 	github.com/golang/protobuf v1.4.3
