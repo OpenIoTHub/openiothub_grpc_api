@@ -1,0 +1,178 @@
+syntax = "proto3";
+
+option go_package = ".;pb";
+
+package pb;
+
+message OpenIoTHubStringValue{
+    string Value = 1;
+}
+//小米网关设备
+message OpenIoTHubEmpty{}
+
+message OpenIoTHubOperationResponse{
+    int32 Code = 1;
+    string Msg = 2;
+}
+
+message IoTManagerServerAndToken{
+    string Host = 1;
+    int32 Port = 2;
+    string Token = 3;
+}
+
+message MDNSService{
+    string Instance = 1;
+    string IP = 2;
+    int32 Port = 3;
+    string MDNSInfo = 4;
+}
+
+message Device{
+    string Uuid = 1;
+    string RunId = 2;
+    string Addr = 3;
+    string Mac = 4;
+    string Name = 5;
+    string Description = 6;
+}
+
+message DeviceList{
+    repeated Device Devices = 1;
+}
+
+// 几种代理类型
+message SessionConfig {
+    string RunId = 1;
+    string Token = 2;
+    string Name = 3;
+    string Description = 4;
+    bool StatusToClient = 5;
+    bool StatusP2PAsClient = 6;
+    bool StatusP2PAsServer = 7;
+}
+
+message SessionList{
+    repeated SessionConfig SessionConfigs = 1;
+}
+
+message PortService{
+    //    String ip;
+    string Ip = 1;
+    //    int port;
+    int32 Port = 2;
+    //    bool isLocal = false;
+    bool IsLocal = 3;
+    //  设备的注册信息
+    //  Map<String, dynamic> info = Map<String, dynamic>();
+    map<string, string> Info = 4;
+}
+
+message PortConfig {
+    Device Device = 1;
+    string Uuid = 2;
+    string Name = 3;
+    string Description = 4;
+    int32 LocalProt = 5;
+    int32 RemotePort = 6;
+    bool BindAllAddr = 7;
+    string Domain = 8;
+    string NetworkProtocol = 9;
+    string ApplicationProtocol = 10;
+    bool RemotePortStatus = 11;
+    PortService MDNSInfo = 12;
+}
+
+message PortList{
+    repeated PortConfig PortConfigs = 1;
+}
+
+message SOCKS5Config {
+    string RunId = 1;
+    int32 Port = 2;
+    string Password = 3;
+    string EncType = 4;
+    string Description = 5;
+}
+
+message SOCKS5List{
+    repeated SOCKS5Config SOCKS5Configs = 1;
+}
+
+message MDNSServiceList{
+    repeated MDNSService MDNSServices = 1;
+}
+
+message TokenModel{
+    string RunId = 1;
+    string Host = 2;
+    int32 TcpPort = 3;
+    int32 KcpPort = 4;
+    int32 TlsPort = 5;
+    int32 GrpcPort = 6;
+    int32 UDPApiPort = 7;
+    int32 KCPApiPort = 8;
+    repeated string Permission = 9;
+}
+
+// 服务的定义
+service SessionManager {
+    // Sends a greeting
+    rpc CreateOneSession (SessionConfig) returns (SessionConfig) {}
+    rpc DeleteOneSession (SessionConfig) returns (OpenIoTHubEmpty) {}
+    rpc GetOneSession (SessionConfig) returns (SessionConfig) {}
+    rpc GetAllSession (OpenIoTHubEmpty) returns (SessionList) {}
+
+    rpc UpdateSessionNameDescription (SessionConfig) returns (SessionConfig) {}
+    // Socks5
+    rpc CreateOneSOCKS5 (SOCKS5Config) returns (SOCKS5Config) {}
+    rpc DeleteOneSOCKS5 (SOCKS5Config) returns (OpenIoTHubEmpty) {}
+    rpc GetOneSOCKS5 (SOCKS5Config) returns (SOCKS5Config) {}
+    //:TODO  获取所有的设备列表
+    // mDNS刷新列表
+    rpc RefreshmDNSProxyList (SessionConfig) returns (OpenIoTHubEmpty) {}
+    // 获取通过mDNS自动映射的TCP端口列表，然后可以查看页面
+    rpc GetAllTCP (SessionConfig) returns (PortList) {}
+    //:TODO VPN接口
+    // 通知这个网关删除配置文件中的token
+    rpc DeleteRemoteGatewayConfig (SessionConfig) returns (OpenIoTHubOperationResponse) {}
+}
+
+// 服务的定义
+service CommonDeviceManager {
+    //设备的操作:增删
+    rpc AddDevice (Device) returns (OpenIoTHubEmpty) {}
+    rpc DelDevice (Device) returns (OpenIoTHubEmpty) {}
+    rpc GetAllDevice (OpenIoTHubEmpty) returns (DeviceList) {}
+    //网络唤醒
+    rpc SetDeviceMac (Device) returns (OpenIoTHubEmpty) {}
+    rpc WakeOnLAN (Device) returns (OpenIoTHubEmpty) {}
+    // TCP
+    rpc CreateOneTCP (PortConfig) returns (PortConfig) {}
+    rpc DeleteOneTCP (PortConfig) returns (OpenIoTHubEmpty) {}
+    rpc GetOneTCP (PortConfig) returns (PortConfig) {}
+    rpc GetAllTCP (Device) returns (PortList) {}
+    // UDP
+    rpc CreateOneUDP (PortConfig) returns (PortConfig) {}
+    rpc DeleteOneUDP (PortConfig) returns (OpenIoTHubEmpty) {}
+    rpc GetOneUDP (PortConfig) returns (PortConfig) {}
+    rpc GetAllUDP (Device) returns (PortList) {}
+    // FTP
+    rpc CreateOneFTP (PortConfig) returns (PortConfig) {}
+    rpc DeleteOneFTP (PortConfig) returns (OpenIoTHubEmpty) {}
+    rpc GetOneFTP (PortConfig) returns (PortConfig) {}
+    rpc GetAllFTP (Device) returns (PortList) {}
+}
+
+service Utils {
+//    让后台服务登录服务器并同步配置
+    rpc SyncConfigWithToken (IoTManagerServerAndToken) returns (OpenIoTHubOperationResponse) {}
+
+    rpc GetAllConfig (OpenIoTHubEmpty) returns (OpenIoTHubStringValue) {}
+    rpc LoadAllConfig (OpenIoTHubStringValue) returns (OpenIoTHubEmpty) {}
+
+    rpc GetAllmDNSServiceList (OpenIoTHubEmpty) returns (MDNSServiceList) {}
+    rpc GetmDNSServiceListByType (OpenIoTHubStringValue) returns (MDNSServiceList) {}
+    rpc ConvertOctonaryUtf8 (OpenIoTHubStringValue) returns (OpenIoTHubStringValue) {}
+    rpc GetTokenModel (OpenIoTHubStringValue) returns (TokenModel) {}
+}

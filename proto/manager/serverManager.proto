@@ -1,0 +1,42 @@
+syntax = "proto3";
+import "common.proto";
+option go_package = ".;pb";
+
+package pb;
+
+// 服务的定义
+service ServerManager {
+    //    对服务器的操作
+    rpc AddServer (ServerInfo) returns (OperationResponse) {}
+    rpc DelServer (ServerInfo) returns (OperationResponse) {}
+    rpc UpdateServer (ServerInfo) returns (OperationResponse) {}
+    rpc QueryServer (StringValue) returns (ServerInfoList) {}
+//    获取所有我可以使用的服务器(公共服务器、自己添加的服务器、别人分享给我的服务器)
+    rpc GetAllServer (Empty) returns (ServerInfoList) {}
+//    获取自己作为管理员的所有服务器
+    rpc GetAllMyServers (Empty) returns (ServerInfoList) {}
+//    获取别人分享给自己的所有服务器
+    rpc GetAllMySharedServers (Empty) returns (ServerInfoList) {}
+
+}
+
+message ServerInfo{
+    string Uuid = 1;
+    string Name = 2;
+    string ServerHost = 3;
+    string LoginKey = 4;
+    int32 TcpPort = 5;
+    int32 KcpPort = 6;
+    int32 UdpApiPort = 7;
+    int32 KcpApiPort = 8;
+    int32 TlsPort = 9;
+    int32 GrpcPort = 10;
+    string Description = 11;
+    bool IsPublic = 12;
+
+    bool IsSharedServer = 13;
+}
+
+message ServerInfoList{
+    repeated ServerInfo ServerInfoList = 1;
+}

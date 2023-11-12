@@ -1,0 +1,56 @@
+syntax = "proto3";
+import "common.proto";
+option go_package = ".;pb";
+
+package pb;
+
+// 服务的定义
+service MqttDeviceManager {
+    //    对MQTT类型设备的操作
+    rpc AddMqttDevice (MqttDeviceInfo) returns (OperationResponse) {}
+    rpc DelMqttDevice (MqttDeviceInfo) returns (OperationResponse) {}
+    rpc GetAllMqttDevice (Empty) returns (MqttDeviceInfoList) {}
+//    设备生成mqtt登录信息
+    rpc GenerateMqttUsernamePassword (MqttDeviceInfo) returns (MqttInfo) {}
+//    获取所有的mqtt Broker
+    rpc GetAllMqttBrokers (Empty) returns (MqttBrokerList) {}
+}
+
+message MqttDeviceInfo{
+    //    String ip;
+    string DeviceId = 1;
+    //    int port;
+    string DeviceModel = 2;
+    string DeviceDefaultName = 3;
+    MqttInfo MqttInfo = 4;
+}
+
+message MqttDeviceInfoList{
+    repeated MqttDeviceInfo MqttDeviceInfoList = 1;
+}
+
+message MqttInfo{
+    //    String ip;
+    string MqttServerHost = 1;
+    //    int port;
+    int32 MqttServerPort = 2;
+    string MqttClientUserName = 3;
+    string MqttClientUserPassword = 4;
+    string MqttClientId = 5;
+    bool SSLorTLS = 6;
+}
+
+message MqttBrokerList{
+    repeated MqttBroker MqttBrokerList = 1;
+}
+
+message MqttBroker{
+    string Name = 1;
+    string Description = 2;
+    string Country = 3;
+    string Zone = 4;
+    //
+    string Host = 5;
+    int32 Port = 6;
+    bool SSLorTLS = 7;
+}

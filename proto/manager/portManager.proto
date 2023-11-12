@@ -1,0 +1,56 @@
+syntax = "proto3";
+import "common.proto";
+option go_package = ".;pb";
+
+package pb;
+
+// 服务的定义
+service PortManager {
+//    Port
+    rpc GetAllPorts (Empty) returns (PortInfoList) {}
+    rpc AddPort (PortInfo) returns (OperationResponse) {}
+    rpc UpdatePort (PortInfo) returns (OperationResponse) {}
+    rpc DelPort (PortInfo) returns (OperationResponse) {}
+
+//    server-go服务器查询本服务器所有端口配置的接口
+    rpc GetAllPortInfoListByServerUuid (Empty) returns (PortInfoList) {}
+    rpc GetAllHttpInfoListByServerUuid (Empty) returns (HttpInfoList) {}
+}
+
+//手动添加的局域网主机
+message PortInfoList{
+    repeated PortInfo PortInfoList = 1;
+}
+
+message HttpInfoList{
+    repeated HttpInfo HttpInfoList = 1;
+}
+
+message PortInfo{
+    string UUID = 1;
+    string Name = 2;
+    string Description = 3;
+    string Domain = 4;
+    string Username = 5;
+    string Password = 6;
+    int32 Port = 7;
+    int32 LocalPort = 8;
+    bool BindAllAddr = 9;
+    string NetworkProtocol = 10;
+    string ApplicationProtocol = 11;
+    string HostUUID = 12;
+}
+
+message HttpInfo{
+    string UUID = 1;
+    string Name = 2;
+    string Description = 3;
+    string Domain = 4;
+    string Username = 5;
+    string Password = 6;
+    string RemoteAddr = 7;
+    int32 RemotePort = 8;
+    string NetworkProtocol = 9;
+    string ApplicationProtocol = 10;
+    string GatewayUuid = 11;
+}

@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option go_package = ".;pb";
+
+package pb;
+
+message Empty{}
+
+message Token{
+    string Value = 1;
+}
+
+message LoginResponse{
+    int32 Code = 1;
+    string Message = 2;
+    bool LoginStatus = 3;
+}
+
+// 服务的定义
+service GatewayLoginManager {
+    rpc CheckGatewayLoginStatus (Empty) returns (LoginResponse) {}
+    rpc LoginServerByToken (Token) returns (LoginResponse) {}
+}

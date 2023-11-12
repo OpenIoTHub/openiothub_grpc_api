@@ -1,0 +1,22 @@
+syntax = "proto3";
+import "common.proto";
+option go_package = ".;pb";
+
+package pb;
+
+// 服务的定义
+service ConfigManager {
+    //    用户配置
+    //    普通配置一次性操作多个
+    rpc GetUserConfigByKey (StringValue) returns (StringValue) {}
+    rpc GetAllUserConfig (Empty) returns (UserConfigMap) {}
+    //    创建或者更新
+    rpc SetUserConfigByKey (UserConfigMap) returns (OperationResponse) {}
+    //    删除
+    rpc DelAllUserConfig (UserConfigMap) returns (OperationResponse) {}
+    rpc DelUserConfigByKey (StringValue) returns (OperationResponse) {}
+}
+
+message UserConfigMap{
+    map<string,string> config = 1;
+}

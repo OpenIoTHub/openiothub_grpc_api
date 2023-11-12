@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+option go_package = ".;pb";
+
+package pb;
+
+message Empty{}
+
+message StringValue{
+    string Value = 1;
+}
+
+message BytesValue{
+    bytes Value = 1;
+}
+
+message OperationResponse{
+    int32 Code = 1;
+    string Msg = 2;
+}
+
+message UserInfo{
+    string Uuid = 1;
+    string Name = 2;
+    string Email = 3;
+    string Mobile = 4;
+    string Avatar = 5;
+}
+
+message WechatUserInfo{
+    string access_token = 1;
+    int32  expires_in = 2;
+    string refresh_token = 3;
+    string openid = 4;
+    string scope = 5;
+    string unionid = 6;
+}
+
+message UserInfoList{
+    repeated UserInfo UserInfoList = 1;
+}

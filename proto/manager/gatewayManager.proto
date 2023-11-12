@@ -1,0 +1,37 @@
+syntax = "proto3";
+import "common.proto";
+option go_package = ".;pb";
+
+package pb;
+
+// 服务的定义
+service GatewayManager {
+    //    对网关的操作
+    rpc AddGateway (GatewayInfo) returns (OperationResponse) {}
+    rpc DelGateway (GatewayInfo) returns (OperationResponse) {}
+    rpc UpdateGateway (GatewayInfo) returns (OperationResponse) {}
+    rpc QueryGateway (GatewayInfo) returns (GatewayInfo) {}
+    rpc GetAllGateway (Empty) returns (GatewayInfoList) {}
+
+    rpc UpdateGatewayNameAndDescription (GatewayInfo) returns (OperationResponse) {}
+
+    rpc GenerateOneGatewayWithDefaultServer (Empty) returns (GatewayInfo) {}
+    rpc GenerateOneGatewayWithServerUuid (StringValue) returns (GatewayInfo) {}
+
+    rpc GetGatewayJwtByGatewayUuid (StringValue) returns (StringValue) {}
+}
+
+message GatewayInfo{
+    string GatewayUuid = 1;
+    string ServerUuid = 2;
+    string Name = 3;
+    string Description = 4;
+    //在线状态
+    bool Status  = 5;
+    string GatewayJwt = 6;
+    string OpenIoTHubJwt = 7;
+}
+
+message GatewayInfoList{
+    repeated GatewayInfo GatewayInfoList = 1;
+}

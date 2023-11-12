@@ -1,0 +1,31 @@
+syntax = "proto3";
+import "common.proto";
+option go_package = ".;pb";
+
+package pb;
+
+// 服务的定义
+service HostManager {
+//    Host
+    rpc GetAllHosts (Empty) returns (HostInfoList) {}
+    rpc AddHost (HostInfo) returns (OperationResponse) {}
+    rpc UpdateHost (HostInfo) returns (OperationResponse) {}
+    rpc DelHost (HostInfo) returns (OperationResponse) {}
+
+//    设置主机的MAC物理地址(用于WoL远程唤醒)
+    rpc SetDeviceMac (HostInfo) returns (OperationResponse) {}
+}
+
+//手动添加的局域网主机
+message HostInfoList{
+    repeated HostInfo HostInfoList = 1;
+}
+
+message HostInfo{
+    string UUID = 1;
+    string Name = 2;
+    string Description = 3;
+    string HostAddr = 4;
+    string GatewayUUID = 5;
+    string Mac = 6;
+}

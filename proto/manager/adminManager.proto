@@ -1,0 +1,14 @@
+syntax = "proto3";
+import "common.proto";
+option go_package = ".;pb";
+
+package pb;
+
+// 服务的定义
+service AdminManager {
+//    管理员权限，管理用户
+    //获取所有用户
+    rpc GetAllUser (Empty) returns (UserInfoList) {}
+    //禁用一个用户(不可以禁用管理员)
+    rpc BanUser (UserInfo) returns (OperationResponse) {}
+}
