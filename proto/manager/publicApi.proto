@@ -1,0 +1,16 @@
+syntax = "proto3";
+import "common.proto";
+option go_package = ".;pb";
+
+package pb;
+
+// 服务的定义
+service PublicApi {
+    //获取网关链接服务器的jwt和手机添加网关的二维码
+    rpc GenerateJwtQRCodePair (Empty) returns (JwtQRCodePair) {}
+}
+
+message JwtQRCodePair{
+    string GatewayJwt = 1;
+    string QRCodeForMobileAdd = 2;
+}

@@ -16,24 +16,24 @@ import 'package:grpc/service_api.dart' as $grpc;
 import 'package:protobuf/protobuf.dart' as $pb;
 
 import 'common.pb.dart' as $0;
-import 'userManager.pb.dart' as $8;
+import 'userManager.pb.dart' as $9;
 
 export 'userManager.pb.dart';
 
 @$pb.GrpcServiceName('pb.UserManager')
 class UserManagerClient extends $grpc.Client {
-  static final _$registerUserWithLoginInfo = $grpc.ClientMethod<$8.LoginInfo, $0.OperationResponse>(
+  static final _$registerUserWithLoginInfo = $grpc.ClientMethod<$9.LoginInfo, $0.OperationResponse>(
       '/pb.UserManager/RegisterUserWithLoginInfo',
-      ($8.LoginInfo value) => value.writeToBuffer(),
+      ($9.LoginInfo value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $0.OperationResponse.fromBuffer(value));
-  static final _$loginWithUserLoginInfo = $grpc.ClientMethod<$8.LoginInfo, $8.UserLoginResponse>(
+  static final _$loginWithUserLoginInfo = $grpc.ClientMethod<$9.LoginInfo, $9.UserLoginResponse>(
       '/pb.UserManager/LoginWithUserLoginInfo',
-      ($8.LoginInfo value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $8.UserLoginResponse.fromBuffer(value));
-  static final _$loginWithWechatCode = $grpc.ClientMethod<$0.StringValue, $8.UserLoginResponse>(
+      ($9.LoginInfo value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $9.UserLoginResponse.fromBuffer(value));
+  static final _$loginWithWechatCode = $grpc.ClientMethod<$0.StringValue, $9.UserLoginResponse>(
       '/pb.UserManager/LoginWithWechatCode',
       ($0.StringValue value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $8.UserLoginResponse.fromBuffer(value));
+      ($core.List<$core.int> value) => $9.UserLoginResponse.fromBuffer(value));
   static final _$bindWithWechatCode = $grpc.ClientMethod<$0.StringValue, $0.OperationResponse>(
       '/pb.UserManager/BindWithWechatCode',
       ($0.StringValue value) => value.writeToBuffer(),
@@ -66,9 +66,9 @@ class UserManagerClient extends $grpc.Client {
       '/pb.UserManager/UpdateUserPassword',
       ($0.StringValue value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $0.OperationResponse.fromBuffer(value));
-  static final _$updateUserAvatar = $grpc.ClientMethod<$8.UpdateAvatar, $0.OperationResponse>(
+  static final _$updateUserAvatar = $grpc.ClientMethod<$9.UpdateAvatar, $0.OperationResponse>(
       '/pb.UserManager/UpdateUserAvatar',
-      ($8.UpdateAvatar value) => value.writeToBuffer(),
+      ($9.UpdateAvatar value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $0.OperationResponse.fromBuffer(value));
   static final _$getAllConfig = $grpc.ClientMethod<$0.Empty, $0.StringValue>(
       '/pb.UserManager/GetAllConfig',
@@ -81,15 +81,15 @@ class UserManagerClient extends $grpc.Client {
       : super(channel, options: options,
         interceptors: interceptors);
 
-  $grpc.ResponseFuture<$0.OperationResponse> registerUserWithLoginInfo($8.LoginInfo request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$0.OperationResponse> registerUserWithLoginInfo($9.LoginInfo request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$registerUserWithLoginInfo, request, options: options);
   }
 
-  $grpc.ResponseFuture<$8.UserLoginResponse> loginWithUserLoginInfo($8.LoginInfo request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$9.UserLoginResponse> loginWithUserLoginInfo($9.LoginInfo request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$loginWithUserLoginInfo, request, options: options);
   }
 
-  $grpc.ResponseFuture<$8.UserLoginResponse> loginWithWechatCode($0.StringValue request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$9.UserLoginResponse> loginWithWechatCode($0.StringValue request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$loginWithWechatCode, request, options: options);
   }
 
@@ -125,7 +125,7 @@ class UserManagerClient extends $grpc.Client {
     return $createUnaryCall(_$updateUserPassword, request, options: options);
   }
 
-  $grpc.ResponseFuture<$0.OperationResponse> updateUserAvatar($8.UpdateAvatar request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$0.OperationResponse> updateUserAvatar($9.UpdateAvatar request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$updateUserAvatar, request, options: options);
   }
 
@@ -139,27 +139,27 @@ abstract class UserManagerServiceBase extends $grpc.Service {
   $core.String get $name => 'pb.UserManager';
 
   UserManagerServiceBase() {
-    $addMethod($grpc.ServiceMethod<$8.LoginInfo, $0.OperationResponse>(
+    $addMethod($grpc.ServiceMethod<$9.LoginInfo, $0.OperationResponse>(
         'RegisterUserWithLoginInfo',
         registerUserWithLoginInfo_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $8.LoginInfo.fromBuffer(value),
+        ($core.List<$core.int> value) => $9.LoginInfo.fromBuffer(value),
         ($0.OperationResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$8.LoginInfo, $8.UserLoginResponse>(
+    $addMethod($grpc.ServiceMethod<$9.LoginInfo, $9.UserLoginResponse>(
         'LoginWithUserLoginInfo',
         loginWithUserLoginInfo_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $8.LoginInfo.fromBuffer(value),
-        ($8.UserLoginResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.StringValue, $8.UserLoginResponse>(
+        ($core.List<$core.int> value) => $9.LoginInfo.fromBuffer(value),
+        ($9.UserLoginResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.StringValue, $9.UserLoginResponse>(
         'LoginWithWechatCode',
         loginWithWechatCode_Pre,
         false,
         false,
         ($core.List<$core.int> value) => $0.StringValue.fromBuffer(value),
-        ($8.UserLoginResponse value) => value.writeToBuffer()));
+        ($9.UserLoginResponse value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$0.StringValue, $0.OperationResponse>(
         'BindWithWechatCode',
         bindWithWechatCode_Pre,
@@ -216,12 +216,12 @@ abstract class UserManagerServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $0.StringValue.fromBuffer(value),
         ($0.OperationResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$8.UpdateAvatar, $0.OperationResponse>(
+    $addMethod($grpc.ServiceMethod<$9.UpdateAvatar, $0.OperationResponse>(
         'UpdateUserAvatar',
         updateUserAvatar_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $8.UpdateAvatar.fromBuffer(value),
+        ($core.List<$core.int> value) => $9.UpdateAvatar.fromBuffer(value),
         ($0.OperationResponse value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$0.Empty, $0.StringValue>(
         'GetAllConfig',
@@ -232,15 +232,15 @@ abstract class UserManagerServiceBase extends $grpc.Service {
         ($0.StringValue value) => value.writeToBuffer()));
   }
 
-  $async.Future<$0.OperationResponse> registerUserWithLoginInfo_Pre($grpc.ServiceCall call, $async.Future<$8.LoginInfo> request) async {
+  $async.Future<$0.OperationResponse> registerUserWithLoginInfo_Pre($grpc.ServiceCall call, $async.Future<$9.LoginInfo> request) async {
     return registerUserWithLoginInfo(call, await request);
   }
 
-  $async.Future<$8.UserLoginResponse> loginWithUserLoginInfo_Pre($grpc.ServiceCall call, $async.Future<$8.LoginInfo> request) async {
+  $async.Future<$9.UserLoginResponse> loginWithUserLoginInfo_Pre($grpc.ServiceCall call, $async.Future<$9.LoginInfo> request) async {
     return loginWithUserLoginInfo(call, await request);
   }
 
-  $async.Future<$8.UserLoginResponse> loginWithWechatCode_Pre($grpc.ServiceCall call, $async.Future<$0.StringValue> request) async {
+  $async.Future<$9.UserLoginResponse> loginWithWechatCode_Pre($grpc.ServiceCall call, $async.Future<$0.StringValue> request) async {
     return loginWithWechatCode(call, await request);
   }
 
@@ -276,7 +276,7 @@ abstract class UserManagerServiceBase extends $grpc.Service {
     return updateUserPassword(call, await request);
   }
 
-  $async.Future<$0.OperationResponse> updateUserAvatar_Pre($grpc.ServiceCall call, $async.Future<$8.UpdateAvatar> request) async {
+  $async.Future<$0.OperationResponse> updateUserAvatar_Pre($grpc.ServiceCall call, $async.Future<$9.UpdateAvatar> request) async {
     return updateUserAvatar(call, await request);
   }
 
@@ -284,9 +284,9 @@ abstract class UserManagerServiceBase extends $grpc.Service {
     return getAllConfig(call, await request);
   }
 
-  $async.Future<$0.OperationResponse> registerUserWithLoginInfo($grpc.ServiceCall call, $8.LoginInfo request);
-  $async.Future<$8.UserLoginResponse> loginWithUserLoginInfo($grpc.ServiceCall call, $8.LoginInfo request);
-  $async.Future<$8.UserLoginResponse> loginWithWechatCode($grpc.ServiceCall call, $0.StringValue request);
+  $async.Future<$0.OperationResponse> registerUserWithLoginInfo($grpc.ServiceCall call, $9.LoginInfo request);
+  $async.Future<$9.UserLoginResponse> loginWithUserLoginInfo($grpc.ServiceCall call, $9.LoginInfo request);
+  $async.Future<$9.UserLoginResponse> loginWithWechatCode($grpc.ServiceCall call, $0.StringValue request);
   $async.Future<$0.OperationResponse> bindWithWechatCode($grpc.ServiceCall call, $0.StringValue request);
   $async.Future<$0.OperationResponse> unbindWechat($grpc.ServiceCall call, $0.Empty request);
   $async.Future<$0.UserInfo> getUserInfo($grpc.ServiceCall call, $0.Empty request);
@@ -295,6 +295,6 @@ abstract class UserManagerServiceBase extends $grpc.Service {
   $async.Future<$0.OperationResponse> updateUserEmail($grpc.ServiceCall call, $0.StringValue request);
   $async.Future<$0.OperationResponse> updateUserMobile($grpc.ServiceCall call, $0.StringValue request);
   $async.Future<$0.OperationResponse> updateUserPassword($grpc.ServiceCall call, $0.StringValue request);
-  $async.Future<$0.OperationResponse> updateUserAvatar($grpc.ServiceCall call, $8.UpdateAvatar request);
+  $async.Future<$0.OperationResponse> updateUserAvatar($grpc.ServiceCall call, $9.UpdateAvatar request);
   $async.Future<$0.StringValue> getAllConfig($grpc.ServiceCall call, $0.Empty request);
 }
