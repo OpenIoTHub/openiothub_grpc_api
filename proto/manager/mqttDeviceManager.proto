@@ -1,4 +1,6 @@
 syntax = "proto3";
+import "google/protobuf/empty.proto";
+import "google/protobuf/wrappers.proto";
 import "common.proto";
 option go_package = ".;pb";
 
@@ -9,11 +11,11 @@ service MqttDeviceManager {
     //    对MQTT类型设备的操作
     rpc AddMqttDevice (MqttDeviceInfo) returns (OperationResponse) {}
     rpc DelMqttDevice (MqttDeviceInfo) returns (OperationResponse) {}
-    rpc GetAllMqttDevice (Empty) returns (MqttDeviceInfoList) {}
+    rpc GetAllMqttDevice (google.protobuf.Empty) returns (MqttDeviceInfoList) {}
 //    设备生成mqtt登录信息
     rpc GenerateMqttUsernamePassword (MqttDeviceInfo) returns (MqttInfo) {}
 //    获取所有的mqtt Broker
-    rpc GetAllMqttBrokers (Empty) returns (MqttBrokerList) {}
+    rpc GetAllMqttBrokers (google.protobuf.Empty) returns (MqttBrokerList) {}
 }
 
 message MqttDeviceInfo{

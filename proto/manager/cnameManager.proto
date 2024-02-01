@@ -1,4 +1,6 @@
 syntax = "proto3";
+import "google/protobuf/empty.proto";
+import "google/protobuf/wrappers.proto";
 import "common.proto";
 option go_package = ".;pb";
 
@@ -8,13 +10,13 @@ package pb;
 service CnameManager {
     //    用户别名
     //    普通配置一次性操作多个
-    rpc GetCnameByKey (StringValue) returns (StringValue) {}
-    rpc GetAllCname (Empty) returns (CnameMap) {}
+    rpc GetCnameByKey (google.protobuf.StringValue) returns (google.protobuf.StringValue) {}
+    rpc GetAllCname (google.protobuf.Empty) returns (CnameMap) {}
     //    创建或者更新
     rpc SetCnameByKey (CnameMap) returns (OperationResponse) {}
     //    删除
     rpc DelAllCname (CnameMap) returns (OperationResponse) {}
-    rpc DelCnameByKey (StringValue) returns (OperationResponse) {}
+    rpc DelCnameByKey (google.protobuf.StringValue) returns (OperationResponse) {}
 }
 
 message CnameMap{

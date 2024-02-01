@@ -13,27 +13,6 @@ import 'dart:convert' as $convert;
 import 'dart:core' as $core;
 import 'dart:typed_data' as $typed_data;
 
-@$core.Deprecated('Use serverGoStringValueDescriptor instead')
-const ServerGoStringValue$json = {
-  '1': 'ServerGoStringValue',
-  '2': [
-    {'1': 'Value', '3': 1, '4': 1, '5': 9, '10': 'Value'},
-  ],
-};
-
-/// Descriptor for `ServerGoStringValue`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List serverGoStringValueDescriptor = $convert.base64Decode(
-    'ChNTZXJ2ZXJHb1N0cmluZ1ZhbHVlEhQKBVZhbHVlGAEgASgJUgVWYWx1ZQ==');
-
-@$core.Deprecated('Use serverGoEmptyDescriptor instead')
-const ServerGoEmpty$json = {
-  '1': 'ServerGoEmpty',
-};
-
-/// Descriptor for `ServerGoEmpty`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List serverGoEmptyDescriptor = $convert.base64Decode(
-    'Cg1TZXJ2ZXJHb0VtcHR5');
-
 @$core.Deprecated('Use serverGoResponseMessageDescriptor instead')
 const ServerGoResponseMessage$json = {
   '1': 'ServerGoResponseMessage',

@@ -1,4 +1,6 @@
 syntax = "proto3";
+import "google/protobuf/empty.proto";
+import "google/protobuf/wrappers.proto";
 import "common.proto";
 option go_package = ".;pb";
 
@@ -11,24 +13,24 @@ service UserManager {
 //    登录 获取Token
     rpc LoginWithUserLoginInfo (LoginInfo) returns (UserLoginResponse) {}
 //    使用微信登录账号获取jwt
-    rpc LoginWithWechatCode (StringValue) returns (UserLoginResponse) {}
+    rpc LoginWithWechatCode (google.protobuf.StringValue) returns (UserLoginResponse) {}
 //    账号绑定微信
-    rpc BindWithWechatCode (StringValue) returns (OperationResponse) {}
+    rpc BindWithWechatCode (google.protobuf.StringValue) returns (OperationResponse) {}
 //    账号解绑微信
-    rpc UnbindWechat (Empty) returns (OperationResponse) {}
+    rpc UnbindWechat (google.protobuf.Empty) returns (OperationResponse) {}
 //    获取用户信息
-    rpc GetUserInfo (Empty) returns (UserInfo) {}
+    rpc GetUserInfo (google.protobuf.Empty) returns (UserInfo) {}
 //    获取用户的微信信息
-    rpc GetUserWechatInfoByCode (StringValue) returns (WechatUserInfo) {}
+    rpc GetUserWechatInfoByCode (google.protobuf.StringValue) returns (WechatUserInfo) {}
 //    更新用户信息
-    rpc UpdateUserName (StringValue) returns (OperationResponse) {}
-    rpc UpdateUserEmail (StringValue) returns (OperationResponse) {}
-    rpc UpdateUserMobile (StringValue) returns (OperationResponse) {}
-    rpc UpdateUserPassword (StringValue) returns (OperationResponse) {}
+    rpc UpdateUserName (google.protobuf.StringValue) returns (OperationResponse) {}
+    rpc UpdateUserEmail (google.protobuf.StringValue) returns (OperationResponse) {}
+    rpc UpdateUserMobile (google.protobuf.StringValue) returns (OperationResponse) {}
+    rpc UpdateUserPassword (google.protobuf.StringValue) returns (OperationResponse) {}
     rpc UpdateUserAvatar (UpdateAvatar) returns (OperationResponse) {}
 //    业务相关操作
 //    获取所有配置(网关、设备、配置等)用于APP的初始化
-    rpc GetAllConfig (Empty) returns (StringValue) {}
+    rpc GetAllConfig (google.protobuf.Empty) returns (google.protobuf.StringValue) {}
 }
 
 message LoginInfo{

@@ -13,7 +13,7 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'common.pb.dart' as $0;
+import 'common.pb.dart' as $1;
 
 class LoginInfo extends $pb.GeneratedMessage {
   factory LoginInfo({
@@ -134,7 +134,7 @@ class UserLoginResponse extends $pb.GeneratedMessage {
     $core.int? code,
     $core.String? msg,
     $core.String? token,
-    $0.UserInfo? userInfo,
+    $1.UserInfo? userInfo,
   }) {
     final $result = create();
     if (code != null) {
@@ -159,7 +159,7 @@ class UserLoginResponse extends $pb.GeneratedMessage {
     ..a<$core.int>(1, _omitFieldNames ? '' : 'Code', $pb.PbFieldType.O3, protoName: 'Code')
     ..aOS(2, _omitFieldNames ? '' : 'Msg', protoName: 'Msg')
     ..aOS(3, _omitFieldNames ? '' : 'Token', protoName: 'Token')
-    ..aOM<$0.UserInfo>(4, _omitFieldNames ? '' : 'UserInfo', protoName: 'UserInfo', subBuilder: $0.UserInfo.create)
+    ..aOM<$1.UserInfo>(4, _omitFieldNames ? '' : 'UserInfo', protoName: 'UserInfo', subBuilder: $1.UserInfo.create)
     ..hasRequiredFields = false
   ;
 
@@ -213,15 +213,15 @@ class UserLoginResponse extends $pb.GeneratedMessage {
 
   /// UserInfo
   @$pb.TagNumber(4)
-  $0.UserInfo get userInfo => $_getN(3);
+  $1.UserInfo get userInfo => $_getN(3);
   @$pb.TagNumber(4)
-  set userInfo($0.UserInfo v) { setField(4, v); }
+  set userInfo($1.UserInfo v) { setField(4, v); }
   @$pb.TagNumber(4)
   $core.bool hasUserInfo() => $_has(3);
   @$pb.TagNumber(4)
   void clearUserInfo() => clearField(4);
   @$pb.TagNumber(4)
-  $0.UserInfo ensureUserInfo() => $_ensure(3);
+  $1.UserInfo ensureUserInfo() => $_ensure(3);
 }
 
 

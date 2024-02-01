@@ -11,6 +11,7 @@ import (
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
+	emptypb "google.golang.org/protobuf/types/known/emptypb"
 )
 
 // This is a compile-time assertion to ensure that this generated file
@@ -22,7 +23,7 @@ const _ = grpc.SupportPackageIsVersion7
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type GatewayLoginManagerClient interface {
-	CheckGatewayLoginStatus(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*LoginResponse, error)
+	CheckGatewayLoginStatus(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*LoginResponse, error)
 	LoginServerByToken(ctx context.Context, in *Token, opts ...grpc.CallOption) (*LoginResponse, error)
 }
 
@@ -34,7 +35,7 @@ func NewGatewayLoginManagerClient(cc grpc.ClientConnInterface) GatewayLoginManag
 	return &gatewayLoginManagerClient{cc}
 }
 
-func (c *gatewayLoginManagerClient) CheckGatewayLoginStatus(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*LoginResponse, error) {
+func (c *gatewayLoginManagerClient) CheckGatewayLoginStatus(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*LoginResponse, error) {
 	out := new(LoginResponse)
 	err := c.cc.Invoke(ctx, "/pb.GatewayLoginManager/CheckGatewayLoginStatus", in, out, opts...)
 	if err != nil {
@@ -56,7 +57,7 @@ func (c *gatewayLoginManagerClient) LoginServerByToken(ctx context.Context, in *
 // All implementations must embed UnimplementedGatewayLoginManagerServer
 // for forward compatibility
 type GatewayLoginManagerServer interface {
-	CheckGatewayLoginStatus(context.Context, *Empty) (*LoginResponse, error)
+	CheckGatewayLoginStatus(context.Context, *emptypb.Empty) (*LoginResponse, error)
 	LoginServerByToken(context.Context, *Token) (*LoginResponse, error)
 	mustEmbedUnimplementedGatewayLoginManagerServer()
 }
@@ -65,7 +66,7 @@ type GatewayLoginManagerServer interface {
 type UnimplementedGatewayLoginManagerServer struct {
 }
 
-func (UnimplementedGatewayLoginManagerServer) CheckGatewayLoginStatus(context.Context, *Empty) (*LoginResponse, error) {
+func (UnimplementedGatewayLoginManagerServer) CheckGatewayLoginStatus(context.Context, *emptypb.Empty) (*LoginResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CheckGatewayLoginStatus not implemented")
 }
 func (UnimplementedGatewayLoginManagerServer) LoginServerByToken(context.Context, *Token) (*LoginResponse, error) {
@@ -85,7 +86,7 @@ func RegisterGatewayLoginManagerServer(s grpc.ServiceRegistrar, srv GatewayLogin
 }
 
 func _GatewayLoginManager_CheckGatewayLoginStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Empty)
+	in := new(emptypb.Empty)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -97,7 +98,7 @@ func _GatewayLoginManager_CheckGatewayLoginStatus_Handler(srv interface{}, ctx c
 		FullMethod: "/pb.GatewayLoginManager/CheckGatewayLoginStatus",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GatewayLoginManagerServer).CheckGatewayLoginStatus(ctx, req.(*Empty))
+		return srv.(GatewayLoginManagerServer).CheckGatewayLoginStatus(ctx, req.(*emptypb.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }

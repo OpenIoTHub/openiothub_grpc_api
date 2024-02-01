@@ -15,20 +15,21 @@ import 'dart:core' as $core;
 import 'package:grpc/service_api.dart' as $grpc;
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'gateway.pb.dart' as $0;
+import '../../google/protobuf/empty.pb.dart' as $0;
+import 'gateway.pb.dart' as $1;
 
 export 'gateway.pb.dart';
 
 @$pb.GrpcServiceName('pb.GatewayLoginManager')
 class GatewayLoginManagerClient extends $grpc.Client {
-  static final _$checkGatewayLoginStatus = $grpc.ClientMethod<$0.Empty, $0.LoginResponse>(
+  static final _$checkGatewayLoginStatus = $grpc.ClientMethod<$0.Empty, $1.LoginResponse>(
       '/pb.GatewayLoginManager/CheckGatewayLoginStatus',
       ($0.Empty value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $0.LoginResponse.fromBuffer(value));
-  static final _$loginServerByToken = $grpc.ClientMethod<$0.Token, $0.LoginResponse>(
+      ($core.List<$core.int> value) => $1.LoginResponse.fromBuffer(value));
+  static final _$loginServerByToken = $grpc.ClientMethod<$1.Token, $1.LoginResponse>(
       '/pb.GatewayLoginManager/LoginServerByToken',
-      ($0.Token value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $0.LoginResponse.fromBuffer(value));
+      ($1.Token value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $1.LoginResponse.fromBuffer(value));
 
   GatewayLoginManagerClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -36,11 +37,11 @@ class GatewayLoginManagerClient extends $grpc.Client {
       : super(channel, options: options,
         interceptors: interceptors);
 
-  $grpc.ResponseFuture<$0.LoginResponse> checkGatewayLoginStatus($0.Empty request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$1.LoginResponse> checkGatewayLoginStatus($0.Empty request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$checkGatewayLoginStatus, request, options: options);
   }
 
-  $grpc.ResponseFuture<$0.LoginResponse> loginServerByToken($0.Token request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$1.LoginResponse> loginServerByToken($1.Token request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$loginServerByToken, request, options: options);
   }
 }
@@ -50,30 +51,30 @@ abstract class GatewayLoginManagerServiceBase extends $grpc.Service {
   $core.String get $name => 'pb.GatewayLoginManager';
 
   GatewayLoginManagerServiceBase() {
-    $addMethod($grpc.ServiceMethod<$0.Empty, $0.LoginResponse>(
+    $addMethod($grpc.ServiceMethod<$0.Empty, $1.LoginResponse>(
         'CheckGatewayLoginStatus',
         checkGatewayLoginStatus_Pre,
         false,
         false,
         ($core.List<$core.int> value) => $0.Empty.fromBuffer(value),
-        ($0.LoginResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.Token, $0.LoginResponse>(
+        ($1.LoginResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.Token, $1.LoginResponse>(
         'LoginServerByToken',
         loginServerByToken_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $0.Token.fromBuffer(value),
-        ($0.LoginResponse value) => value.writeToBuffer()));
+        ($core.List<$core.int> value) => $1.Token.fromBuffer(value),
+        ($1.LoginResponse value) => value.writeToBuffer()));
   }
 
-  $async.Future<$0.LoginResponse> checkGatewayLoginStatus_Pre($grpc.ServiceCall call, $async.Future<$0.Empty> request) async {
+  $async.Future<$1.LoginResponse> checkGatewayLoginStatus_Pre($grpc.ServiceCall call, $async.Future<$0.Empty> request) async {
     return checkGatewayLoginStatus(call, await request);
   }
 
-  $async.Future<$0.LoginResponse> loginServerByToken_Pre($grpc.ServiceCall call, $async.Future<$0.Token> request) async {
+  $async.Future<$1.LoginResponse> loginServerByToken_Pre($grpc.ServiceCall call, $async.Future<$1.Token> request) async {
     return loginServerByToken(call, await request);
   }
 
-  $async.Future<$0.LoginResponse> checkGatewayLoginStatus($grpc.ServiceCall call, $0.Empty request);
-  $async.Future<$0.LoginResponse> loginServerByToken($grpc.ServiceCall call, $0.Token request);
+  $async.Future<$1.LoginResponse> checkGatewayLoginStatus($grpc.ServiceCall call, $0.Empty request);
+  $async.Future<$1.LoginResponse> loginServerByToken($grpc.ServiceCall call, $1.Token request);
 }

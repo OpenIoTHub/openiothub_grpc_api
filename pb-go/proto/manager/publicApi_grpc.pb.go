@@ -11,6 +11,7 @@ import (
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
+	emptypb "google.golang.org/protobuf/types/known/emptypb"
 )
 
 // This is a compile-time assertion to ensure that this generated file
@@ -23,7 +24,7 @@ const _ = grpc.SupportPackageIsVersion7
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type PublicApiClient interface {
 	// 获取网关链接服务器的jwt和手机添加网关的二维码
-	GenerateJwtQRCodePair(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*JwtQRCodePair, error)
+	GenerateJwtQRCodePair(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*JwtQRCodePair, error)
 }
 
 type publicApiClient struct {
@@ -34,7 +35,7 @@ func NewPublicApiClient(cc grpc.ClientConnInterface) PublicApiClient {
 	return &publicApiClient{cc}
 }
 
-func (c *publicApiClient) GenerateJwtQRCodePair(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*JwtQRCodePair, error) {
+func (c *publicApiClient) GenerateJwtQRCodePair(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*JwtQRCodePair, error) {
 	out := new(JwtQRCodePair)
 	err := c.cc.Invoke(ctx, "/pb.PublicApi/GenerateJwtQRCodePair", in, out, opts...)
 	if err != nil {
@@ -48,7 +49,7 @@ func (c *publicApiClient) GenerateJwtQRCodePair(ctx context.Context, in *Empty, 
 // for forward compatibility
 type PublicApiServer interface {
 	// 获取网关链接服务器的jwt和手机添加网关的二维码
-	GenerateJwtQRCodePair(context.Context, *Empty) (*JwtQRCodePair, error)
+	GenerateJwtQRCodePair(context.Context, *emptypb.Empty) (*JwtQRCodePair, error)
 	mustEmbedUnimplementedPublicApiServer()
 }
 
@@ -56,7 +57,7 @@ type PublicApiServer interface {
 type UnimplementedPublicApiServer struct {
 }
 
-func (UnimplementedPublicApiServer) GenerateJwtQRCodePair(context.Context, *Empty) (*JwtQRCodePair, error) {
+func (UnimplementedPublicApiServer) GenerateJwtQRCodePair(context.Context, *emptypb.Empty) (*JwtQRCodePair, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GenerateJwtQRCodePair not implemented")
 }
 func (UnimplementedPublicApiServer) mustEmbedUnimplementedPublicApiServer() {}
@@ -73,7 +74,7 @@ func RegisterPublicApiServer(s grpc.ServiceRegistrar, srv PublicApiServer) {
 }
 
 func _PublicApi_GenerateJwtQRCodePair_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Empty)
+	in := new(emptypb.Empty)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -85,7 +86,7 @@ func _PublicApi_GenerateJwtQRCodePair_Handler(srv interface{}, ctx context.Conte
 		FullMethod: "/pb.PublicApi/GenerateJwtQRCodePair",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PublicApiServer).GenerateJwtQRCodePair(ctx, req.(*Empty))
+		return srv.(PublicApiServer).GenerateJwtQRCodePair(ctx, req.(*emptypb.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }

@@ -1,3 +1,7 @@
+## [1.1.2]
+
+* update proto, Empty etc.
+
 ## [1.1.1]
 
 * add PublicApi:GenerateJwtQRCodePair API

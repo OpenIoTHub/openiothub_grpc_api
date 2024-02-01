@@ -1,4 +1,6 @@
 syntax = "proto3";
+import "google/protobuf/empty.proto";
+import "google/protobuf/wrappers.proto";
 import "common.proto";
 option go_package = ".;pb";
 
@@ -7,14 +9,14 @@ package pb;
 // 服务的定义
 service PortManager {
 //    Port
-    rpc GetAllPorts (Empty) returns (PortInfoList) {}
+    rpc GetAllPorts (google.protobuf.Empty) returns (PortInfoList) {}
     rpc AddPort (PortInfo) returns (OperationResponse) {}
     rpc UpdatePort (PortInfo) returns (OperationResponse) {}
     rpc DelPort (PortInfo) returns (OperationResponse) {}
 
 //    server-go服务器查询本服务器所有端口配置的接口
-    rpc GetAllPortInfoListByServerUuid (Empty) returns (PortInfoList) {}
-    rpc GetAllHttpInfoListByServerUuid (Empty) returns (HttpInfoList) {}
+    rpc GetAllPortInfoListByServerUuid (google.protobuf.Empty) returns (PortInfoList) {}
+    rpc GetAllHttpInfoListByServerUuid (google.protobuf.Empty) returns (HttpInfoList) {}
 }
 
 //手动添加的局域网主机

@@ -4,8 +4,7 @@ option go_package = ".;pb";
 
 package pb;
 
-message Empty{}
-
+import "google/protobuf/empty.proto";
 message Token{
     string Value = 1;
 }
@@ -18,6 +17,6 @@ message LoginResponse{
 
 // 服务的定义
 service GatewayLoginManager {
-    rpc CheckGatewayLoginStatus (Empty) returns (LoginResponse) {}
+    rpc CheckGatewayLoginStatus (google.protobuf.Empty) returns (LoginResponse) {}
     rpc LoginServerByToken (Token) returns (LoginResponse) {}
 }

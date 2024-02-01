@@ -15,33 +15,35 @@ import 'dart:core' as $core;
 import 'package:grpc/service_api.dart' as $grpc;
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'common.pb.dart' as $0;
-import 'configManager.pb.dart' as $2;
+import 'common.pb.dart' as $1;
+import 'configManager.pb.dart' as $4;
+import '../../google/protobuf/empty.pb.dart' as $0;
+import '../../google/protobuf/wrappers.pb.dart' as $2;
 
 export 'configManager.pb.dart';
 
 @$pb.GrpcServiceName('pb.ConfigManager')
 class ConfigManagerClient extends $grpc.Client {
-  static final _$getUserConfigByKey = $grpc.ClientMethod<$0.StringValue, $0.StringValue>(
+  static final _$getUserConfigByKey = $grpc.ClientMethod<$2.StringValue, $2.StringValue>(
       '/pb.ConfigManager/GetUserConfigByKey',
-      ($0.StringValue value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $0.StringValue.fromBuffer(value));
-  static final _$getAllUserConfig = $grpc.ClientMethod<$0.Empty, $2.UserConfigMap>(
+      ($2.StringValue value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $2.StringValue.fromBuffer(value));
+  static final _$getAllUserConfig = $grpc.ClientMethod<$0.Empty, $4.UserConfigMap>(
       '/pb.ConfigManager/GetAllUserConfig',
       ($0.Empty value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $2.UserConfigMap.fromBuffer(value));
-  static final _$setUserConfigByKey = $grpc.ClientMethod<$2.UserConfigMap, $0.OperationResponse>(
+      ($core.List<$core.int> value) => $4.UserConfigMap.fromBuffer(value));
+  static final _$setUserConfigByKey = $grpc.ClientMethod<$4.UserConfigMap, $1.OperationResponse>(
       '/pb.ConfigManager/SetUserConfigByKey',
-      ($2.UserConfigMap value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $0.OperationResponse.fromBuffer(value));
-  static final _$delAllUserConfig = $grpc.ClientMethod<$2.UserConfigMap, $0.OperationResponse>(
+      ($4.UserConfigMap value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $1.OperationResponse.fromBuffer(value));
+  static final _$delAllUserConfig = $grpc.ClientMethod<$4.UserConfigMap, $1.OperationResponse>(
       '/pb.ConfigManager/DelAllUserConfig',
-      ($2.UserConfigMap value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $0.OperationResponse.fromBuffer(value));
-  static final _$delUserConfigByKey = $grpc.ClientMethod<$0.StringValue, $0.OperationResponse>(
+      ($4.UserConfigMap value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $1.OperationResponse.fromBuffer(value));
+  static final _$delUserConfigByKey = $grpc.ClientMethod<$2.StringValue, $1.OperationResponse>(
       '/pb.ConfigManager/DelUserConfigByKey',
-      ($0.StringValue value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $0.OperationResponse.fromBuffer(value));
+      ($2.StringValue value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $1.OperationResponse.fromBuffer(value));
 
   ConfigManagerClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -49,23 +51,23 @@ class ConfigManagerClient extends $grpc.Client {
       : super(channel, options: options,
         interceptors: interceptors);
 
-  $grpc.ResponseFuture<$0.StringValue> getUserConfigByKey($0.StringValue request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$2.StringValue> getUserConfigByKey($2.StringValue request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$getUserConfigByKey, request, options: options);
   }
 
-  $grpc.ResponseFuture<$2.UserConfigMap> getAllUserConfig($0.Empty request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$4.UserConfigMap> getAllUserConfig($0.Empty request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$getAllUserConfig, request, options: options);
   }
 
-  $grpc.ResponseFuture<$0.OperationResponse> setUserConfigByKey($2.UserConfigMap request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$1.OperationResponse> setUserConfigByKey($4.UserConfigMap request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$setUserConfigByKey, request, options: options);
   }
 
-  $grpc.ResponseFuture<$0.OperationResponse> delAllUserConfig($2.UserConfigMap request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$1.OperationResponse> delAllUserConfig($4.UserConfigMap request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$delAllUserConfig, request, options: options);
   }
 
-  $grpc.ResponseFuture<$0.OperationResponse> delUserConfigByKey($0.StringValue request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$1.OperationResponse> delUserConfigByKey($2.StringValue request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$delUserConfigByKey, request, options: options);
   }
 }
@@ -75,66 +77,66 @@ abstract class ConfigManagerServiceBase extends $grpc.Service {
   $core.String get $name => 'pb.ConfigManager';
 
   ConfigManagerServiceBase() {
-    $addMethod($grpc.ServiceMethod<$0.StringValue, $0.StringValue>(
+    $addMethod($grpc.ServiceMethod<$2.StringValue, $2.StringValue>(
         'GetUserConfigByKey',
         getUserConfigByKey_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $0.StringValue.fromBuffer(value),
-        ($0.StringValue value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.Empty, $2.UserConfigMap>(
+        ($core.List<$core.int> value) => $2.StringValue.fromBuffer(value),
+        ($2.StringValue value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.Empty, $4.UserConfigMap>(
         'GetAllUserConfig',
         getAllUserConfig_Pre,
         false,
         false,
         ($core.List<$core.int> value) => $0.Empty.fromBuffer(value),
-        ($2.UserConfigMap value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$2.UserConfigMap, $0.OperationResponse>(
+        ($4.UserConfigMap value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$4.UserConfigMap, $1.OperationResponse>(
         'SetUserConfigByKey',
         setUserConfigByKey_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $2.UserConfigMap.fromBuffer(value),
-        ($0.OperationResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$2.UserConfigMap, $0.OperationResponse>(
+        ($core.List<$core.int> value) => $4.UserConfigMap.fromBuffer(value),
+        ($1.OperationResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$4.UserConfigMap, $1.OperationResponse>(
         'DelAllUserConfig',
         delAllUserConfig_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $2.UserConfigMap.fromBuffer(value),
-        ($0.OperationResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.StringValue, $0.OperationResponse>(
+        ($core.List<$core.int> value) => $4.UserConfigMap.fromBuffer(value),
+        ($1.OperationResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$2.StringValue, $1.OperationResponse>(
         'DelUserConfigByKey',
         delUserConfigByKey_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $0.StringValue.fromBuffer(value),
-        ($0.OperationResponse value) => value.writeToBuffer()));
+        ($core.List<$core.int> value) => $2.StringValue.fromBuffer(value),
+        ($1.OperationResponse value) => value.writeToBuffer()));
   }
 
-  $async.Future<$0.StringValue> getUserConfigByKey_Pre($grpc.ServiceCall call, $async.Future<$0.StringValue> request) async {
+  $async.Future<$2.StringValue> getUserConfigByKey_Pre($grpc.ServiceCall call, $async.Future<$2.StringValue> request) async {
     return getUserConfigByKey(call, await request);
   }
 
-  $async.Future<$2.UserConfigMap> getAllUserConfig_Pre($grpc.ServiceCall call, $async.Future<$0.Empty> request) async {
+  $async.Future<$4.UserConfigMap> getAllUserConfig_Pre($grpc.ServiceCall call, $async.Future<$0.Empty> request) async {
     return getAllUserConfig(call, await request);
   }
 
-  $async.Future<$0.OperationResponse> setUserConfigByKey_Pre($grpc.ServiceCall call, $async.Future<$2.UserConfigMap> request) async {
+  $async.Future<$1.OperationResponse> setUserConfigByKey_Pre($grpc.ServiceCall call, $async.Future<$4.UserConfigMap> request) async {
     return setUserConfigByKey(call, await request);
   }
 
-  $async.Future<$0.OperationResponse> delAllUserConfig_Pre($grpc.ServiceCall call, $async.Future<$2.UserConfigMap> request) async {
+  $async.Future<$1.OperationResponse> delAllUserConfig_Pre($grpc.ServiceCall call, $async.Future<$4.UserConfigMap> request) async {
     return delAllUserConfig(call, await request);
   }
 
-  $async.Future<$0.OperationResponse> delUserConfigByKey_Pre($grpc.ServiceCall call, $async.Future<$0.StringValue> request) async {
+  $async.Future<$1.OperationResponse> delUserConfigByKey_Pre($grpc.ServiceCall call, $async.Future<$2.StringValue> request) async {
     return delUserConfigByKey(call, await request);
   }
 
-  $async.Future<$0.StringValue> getUserConfigByKey($grpc.ServiceCall call, $0.StringValue request);
-  $async.Future<$2.UserConfigMap> getAllUserConfig($grpc.ServiceCall call, $0.Empty request);
-  $async.Future<$0.OperationResponse> setUserConfigByKey($grpc.ServiceCall call, $2.UserConfigMap request);
-  $async.Future<$0.OperationResponse> delAllUserConfig($grpc.ServiceCall call, $2.UserConfigMap request);
-  $async.Future<$0.OperationResponse> delUserConfigByKey($grpc.ServiceCall call, $0.StringValue request);
+  $async.Future<$2.StringValue> getUserConfigByKey($grpc.ServiceCall call, $2.StringValue request);
+  $async.Future<$4.UserConfigMap> getAllUserConfig($grpc.ServiceCall call, $0.Empty request);
+  $async.Future<$1.OperationResponse> setUserConfigByKey($grpc.ServiceCall call, $4.UserConfigMap request);
+  $async.Future<$1.OperationResponse> delAllUserConfig($grpc.ServiceCall call, $4.UserConfigMap request);
+  $async.Future<$1.OperationResponse> delUserConfigByKey($grpc.ServiceCall call, $2.StringValue request);
 }

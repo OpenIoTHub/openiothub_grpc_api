@@ -13,27 +13,6 @@ import 'dart:convert' as $convert;
 import 'dart:core' as $core;
 import 'dart:typed_data' as $typed_data;
 
-@$core.Deprecated('Use openIoTHubStringValueDescriptor instead')
-const OpenIoTHubStringValue$json = {
-  '1': 'OpenIoTHubStringValue',
-  '2': [
-    {'1': 'Value', '3': 1, '4': 1, '5': 9, '10': 'Value'},
-  ],
-};
-
-/// Descriptor for `OpenIoTHubStringValue`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List openIoTHubStringValueDescriptor = $convert.base64Decode(
-    'ChVPcGVuSW9USHViU3RyaW5nVmFsdWUSFAoFVmFsdWUYASABKAlSBVZhbHVl');
-
-@$core.Deprecated('Use openIoTHubEmptyDescriptor instead')
-const OpenIoTHubEmpty$json = {
-  '1': 'OpenIoTHubEmpty',
-};
-
-/// Descriptor for `OpenIoTHubEmpty`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List openIoTHubEmptyDescriptor = $convert.base64Decode(
-    'Cg9PcGVuSW9USHViRW1wdHk=');
-
 @$core.Deprecated('Use openIoTHubOperationResponseDescriptor instead')
 const OpenIoTHubOperationResponse$json = {
   '1': 'OpenIoTHubOperationResponse',

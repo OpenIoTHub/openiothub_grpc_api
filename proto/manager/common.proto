@@ -4,16 +4,6 @@ option go_package = ".;pb";
 
 package pb;
 
-message Empty{}
-
-message StringValue{
-    string Value = 1;
-}
-
-message BytesValue{
-    bytes Value = 1;
-}
-
 message OperationResponse{
     int32 Code = 1;
     string Msg = 2;

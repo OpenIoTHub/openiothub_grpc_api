@@ -13,39 +13,6 @@ import 'dart:convert' as $convert;
 import 'dart:core' as $core;
 import 'dart:typed_data' as $typed_data;
 
-@$core.Deprecated('Use emptyDescriptor instead')
-const Empty$json = {
-  '1': 'Empty',
-};
-
-/// Descriptor for `Empty`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List emptyDescriptor = $convert.base64Decode(
-    'CgVFbXB0eQ==');
-
-@$core.Deprecated('Use stringValueDescriptor instead')
-const StringValue$json = {
-  '1': 'StringValue',
-  '2': [
-    {'1': 'Value', '3': 1, '4': 1, '5': 9, '10': 'Value'},
-  ],
-};
-
-/// Descriptor for `StringValue`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List stringValueDescriptor = $convert.base64Decode(
-    'CgtTdHJpbmdWYWx1ZRIUCgVWYWx1ZRgBIAEoCVIFVmFsdWU=');
-
-@$core.Deprecated('Use bytesValueDescriptor instead')
-const BytesValue$json = {
-  '1': 'BytesValue',
-  '2': [
-    {'1': 'Value', '3': 1, '4': 1, '5': 12, '10': 'Value'},
-  ],
-};
-
-/// Descriptor for `BytesValue`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List bytesValueDescriptor = $convert.base64Decode(
-    'CgpCeXRlc1ZhbHVlEhQKBVZhbHVlGAEgASgMUgVWYWx1ZQ==');
-
 @$core.Deprecated('Use operationResponseDescriptor instead')
 const OperationResponse$json = {
   '1': 'OperationResponse',

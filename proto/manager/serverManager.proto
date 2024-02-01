@@ -1,4 +1,6 @@
 syntax = "proto3";
+import "google/protobuf/empty.proto";
+import "google/protobuf/wrappers.proto";
 import "common.proto";
 option go_package = ".;pb";
 
@@ -10,13 +12,13 @@ service ServerManager {
     rpc AddServer (ServerInfo) returns (OperationResponse) {}
     rpc DelServer (ServerInfo) returns (OperationResponse) {}
     rpc UpdateServer (ServerInfo) returns (OperationResponse) {}
-    rpc QueryServer (StringValue) returns (ServerInfoList) {}
+    rpc QueryServer (google.protobuf.StringValue) returns (ServerInfoList) {}
 //    获取所有我可以使用的服务器(公共服务器、自己添加的服务器、别人分享给我的服务器)
-    rpc GetAllServer (Empty) returns (ServerInfoList) {}
+    rpc GetAllServer (google.protobuf.Empty) returns (ServerInfoList) {}
 //    获取自己作为管理员的所有服务器
-    rpc GetAllMyServers (Empty) returns (ServerInfoList) {}
+    rpc GetAllMyServers (google.protobuf.Empty) returns (ServerInfoList) {}
 //    获取别人分享给自己的所有服务器
-    rpc GetAllMySharedServers (Empty) returns (ServerInfoList) {}
+    rpc GetAllMySharedServers (google.protobuf.Empty) returns (ServerInfoList) {}
 
 }
 
