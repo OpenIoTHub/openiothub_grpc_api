@@ -1,3 +1,7 @@
+## [1.1.5]
+
+* Add GetOpenIoTHubJwtByGatewayUuid func
+
 ## [1.1.4]
 
 * update proto, Empty etc.

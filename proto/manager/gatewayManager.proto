@@ -21,6 +21,7 @@ service GatewayManager {
     rpc GenerateOneGatewayWithServerUuid (google.protobuf.StringValue) returns (GatewayInfo) {}
 
     rpc GetGatewayJwtByGatewayUuid (google.protobuf.StringValue) returns (google.protobuf.StringValue) {}
+    rpc GetOpenIoTHubJwtByGatewayUuid (google.protobuf.StringValue) returns (google.protobuf.StringValue) {}
 }
 
 message GatewayInfo{
