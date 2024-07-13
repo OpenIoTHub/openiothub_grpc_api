@@ -76,6 +76,10 @@ class UserManagerClient extends $grpc.Client {
       '/pb.UserManager/GetAllConfig',
       ($0.Empty value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $2.StringValue.fromBuffer(value));
+  static final _$deleteMyAccount = $grpc.ClientMethod<$11.LoginInfo, $1.OperationResponse>(
+      '/pb.UserManager/DeleteMyAccount',
+      ($11.LoginInfo value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $1.OperationResponse.fromBuffer(value));
 
   UserManagerClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -133,6 +137,10 @@ class UserManagerClient extends $grpc.Client {
 
   $grpc.ResponseFuture<$2.StringValue> getAllConfig($0.Empty request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$getAllConfig, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$1.OperationResponse> deleteMyAccount($11.LoginInfo request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$deleteMyAccount, request, options: options);
   }
 }
 
@@ -232,6 +240,13 @@ abstract class UserManagerServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $0.Empty.fromBuffer(value),
         ($2.StringValue value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$11.LoginInfo, $1.OperationResponse>(
+        'DeleteMyAccount',
+        deleteMyAccount_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $11.LoginInfo.fromBuffer(value),
+        ($1.OperationResponse value) => value.writeToBuffer()));
   }
 
   $async.Future<$1.OperationResponse> registerUserWithLoginInfo_Pre($grpc.ServiceCall call, $async.Future<$11.LoginInfo> request) async {
@@ -286,6 +301,10 @@ abstract class UserManagerServiceBase extends $grpc.Service {
     return getAllConfig(call, await request);
   }
 
+  $async.Future<$1.OperationResponse> deleteMyAccount_Pre($grpc.ServiceCall call, $async.Future<$11.LoginInfo> request) async {
+    return deleteMyAccount(call, await request);
+  }
+
   $async.Future<$1.OperationResponse> registerUserWithLoginInfo($grpc.ServiceCall call, $11.LoginInfo request);
   $async.Future<$11.UserLoginResponse> loginWithUserLoginInfo($grpc.ServiceCall call, $11.LoginInfo request);
   $async.Future<$11.UserLoginResponse> loginWithWechatCode($grpc.ServiceCall call, $2.StringValue request);
@@ -299,4 +318,5 @@ abstract class UserManagerServiceBase extends $grpc.Service {
   $async.Future<$1.OperationResponse> updateUserPassword($grpc.ServiceCall call, $2.StringValue request);
   $async.Future<$1.OperationResponse> updateUserAvatar($grpc.ServiceCall call, $11.UpdateAvatar request);
   $async.Future<$2.StringValue> getAllConfig($grpc.ServiceCall call, $0.Empty request);
+  $async.Future<$1.OperationResponse> deleteMyAccount($grpc.ServiceCall call, $11.LoginInfo request);
 }

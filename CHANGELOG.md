@@ -1,3 +1,7 @@
+## [1.1.6]
+
+* Add DeleteMyAccount interface
+
 ## [1.1.5]
 
 * Add GetOpenIoTHubJwtByGatewayUuid func
