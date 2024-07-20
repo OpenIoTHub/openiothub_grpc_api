@@ -1158,6 +1158,7 @@ var CommonDeviceManager_ServiceDesc = grpc.ServiceDesc{
 type UtilsClient interface {
 	// 让后台服务登录服务器并同步配置
 	SyncConfigWithToken(ctx context.Context, in *IoTManagerServerAndToken, opts ...grpc.CallOption) (*OpenIoTHubOperationResponse, error)
+	SyncConfigWithJsonConfig(ctx context.Context, in *wrapperspb.StringValue, opts ...grpc.CallOption) (*OpenIoTHubOperationResponse, error)
 	GetAllConfig(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*wrapperspb.StringValue, error)
 	LoadAllConfig(ctx context.Context, in *wrapperspb.StringValue, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	GetAllmDNSServiceList(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*MDNSServiceList, error)
@@ -1177,6 +1178,15 @@ func NewUtilsClient(cc grpc.ClientConnInterface) UtilsClient {
 func (c *utilsClient) SyncConfigWithToken(ctx context.Context, in *IoTManagerServerAndToken, opts ...grpc.CallOption) (*OpenIoTHubOperationResponse, error) {
 	out := new(OpenIoTHubOperationResponse)
 	err := c.cc.Invoke(ctx, "/pb.Utils/SyncConfigWithToken", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *utilsClient) SyncConfigWithJsonConfig(ctx context.Context, in *wrapperspb.StringValue, opts ...grpc.CallOption) (*OpenIoTHubOperationResponse, error) {
+	out := new(OpenIoTHubOperationResponse)
+	err := c.cc.Invoke(ctx, "/pb.Utils/SyncConfigWithJsonConfig", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1243,6 +1253,7 @@ func (c *utilsClient) GetTokenModel(ctx context.Context, in *wrapperspb.StringVa
 type UtilsServer interface {
 	// 让后台服务登录服务器并同步配置
 	SyncConfigWithToken(context.Context, *IoTManagerServerAndToken) (*OpenIoTHubOperationResponse, error)
+	SyncConfigWithJsonConfig(context.Context, *wrapperspb.StringValue) (*OpenIoTHubOperationResponse, error)
 	GetAllConfig(context.Context, *emptypb.Empty) (*wrapperspb.StringValue, error)
 	LoadAllConfig(context.Context, *wrapperspb.StringValue) (*emptypb.Empty, error)
 	GetAllmDNSServiceList(context.Context, *emptypb.Empty) (*MDNSServiceList, error)
@@ -1258,6 +1269,9 @@ type UnimplementedUtilsServer struct {
 
 func (UnimplementedUtilsServer) SyncConfigWithToken(context.Context, *IoTManagerServerAndToken) (*OpenIoTHubOperationResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SyncConfigWithToken not implemented")
+}
+func (UnimplementedUtilsServer) SyncConfigWithJsonConfig(context.Context, *wrapperspb.StringValue) (*OpenIoTHubOperationResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SyncConfigWithJsonConfig not implemented")
 }
 func (UnimplementedUtilsServer) GetAllConfig(context.Context, *emptypb.Empty) (*wrapperspb.StringValue, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAllConfig not implemented")
@@ -1304,6 +1318,24 @@ func _Utils_SyncConfigWithToken_Handler(srv interface{}, ctx context.Context, de
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(UtilsServer).SyncConfigWithToken(ctx, req.(*IoTManagerServerAndToken))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Utils_SyncConfigWithJsonConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(wrapperspb.StringValue)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UtilsServer).SyncConfigWithJsonConfig(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/pb.Utils/SyncConfigWithJsonConfig",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UtilsServer).SyncConfigWithJsonConfig(ctx, req.(*wrapperspb.StringValue))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1426,6 +1458,10 @@ var Utils_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "SyncConfigWithToken",
 			Handler:    _Utils_SyncConfigWithToken_Handler,
+		},
+		{
+			MethodName: "SyncConfigWithJsonConfig",
+			Handler:    _Utils_SyncConfigWithJsonConfig_Handler,
 		},
 		{
 			MethodName: "GetAllConfig",

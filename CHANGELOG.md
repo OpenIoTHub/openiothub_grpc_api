@@ -1,3 +1,7 @@
+## [1.1.7]
+
+* SyncConfigWithJsonConfig
+
 ## [1.1.6]
 
 * Add DeleteMyAccount interface

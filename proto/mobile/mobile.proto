@@ -164,6 +164,7 @@ service CommonDeviceManager {
 service Utils {
 //    让后台服务登录服务器并同步配置
     rpc SyncConfigWithToken (IoTManagerServerAndToken) returns (OpenIoTHubOperationResponse) {}
+    rpc SyncConfigWithJsonConfig (google.protobuf.StringValue) returns (OpenIoTHubOperationResponse) {}
 
     rpc GetAllConfig (google.protobuf.Empty) returns (google.protobuf.StringValue) {}
     rpc LoadAllConfig (google.protobuf.StringValue) returns (google.protobuf.Empty) {}
