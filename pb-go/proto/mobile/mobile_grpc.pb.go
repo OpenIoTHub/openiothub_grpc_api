@@ -1156,6 +1156,7 @@ var CommonDeviceManager_ServiceDesc = grpc.ServiceDesc{
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type UtilsClient interface {
+	Ping(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	// 让后台服务登录服务器并同步配置
 	SyncConfigWithToken(ctx context.Context, in *IoTManagerServerAndToken, opts ...grpc.CallOption) (*OpenIoTHubOperationResponse, error)
 	SyncConfigWithJsonConfig(ctx context.Context, in *wrapperspb.StringValue, opts ...grpc.CallOption) (*OpenIoTHubOperationResponse, error)
@@ -1173,6 +1174,15 @@ type utilsClient struct {
 
 func NewUtilsClient(cc grpc.ClientConnInterface) UtilsClient {
 	return &utilsClient{cc}
+}
+
+func (c *utilsClient) Ping(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
+	err := c.cc.Invoke(ctx, "/pb.Utils/Ping", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
 }
 
 func (c *utilsClient) SyncConfigWithToken(ctx context.Context, in *IoTManagerServerAndToken, opts ...grpc.CallOption) (*OpenIoTHubOperationResponse, error) {
@@ -1251,6 +1261,7 @@ func (c *utilsClient) GetTokenModel(ctx context.Context, in *wrapperspb.StringVa
 // All implementations must embed UnimplementedUtilsServer
 // for forward compatibility
 type UtilsServer interface {
+	Ping(context.Context, *emptypb.Empty) (*emptypb.Empty, error)
 	// 让后台服务登录服务器并同步配置
 	SyncConfigWithToken(context.Context, *IoTManagerServerAndToken) (*OpenIoTHubOperationResponse, error)
 	SyncConfigWithJsonConfig(context.Context, *wrapperspb.StringValue) (*OpenIoTHubOperationResponse, error)
@@ -1267,6 +1278,9 @@ type UtilsServer interface {
 type UnimplementedUtilsServer struct {
 }
 
+func (UnimplementedUtilsServer) Ping(context.Context, *emptypb.Empty) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Ping not implemented")
+}
 func (UnimplementedUtilsServer) SyncConfigWithToken(context.Context, *IoTManagerServerAndToken) (*OpenIoTHubOperationResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SyncConfigWithToken not implemented")
 }
@@ -1302,6 +1316,24 @@ type UnsafeUtilsServer interface {
 
 func RegisterUtilsServer(s grpc.ServiceRegistrar, srv UtilsServer) {
 	s.RegisterService(&Utils_ServiceDesc, srv)
+}
+
+func _Utils_Ping_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(emptypb.Empty)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UtilsServer).Ping(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/pb.Utils/Ping",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UtilsServer).Ping(ctx, req.(*emptypb.Empty))
+	}
+	return interceptor(ctx, in, info, handler)
 }
 
 func _Utils_SyncConfigWithToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -1455,6 +1487,10 @@ var Utils_ServiceDesc = grpc.ServiceDesc{
 	ServiceName: "pb.Utils",
 	HandlerType: (*UtilsServer)(nil),
 	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Ping",
+			Handler:    _Utils_Ping_Handler,
+		},
 		{
 			MethodName: "SyncConfigWithToken",
 			Handler:    _Utils_SyncConfigWithToken_Handler,

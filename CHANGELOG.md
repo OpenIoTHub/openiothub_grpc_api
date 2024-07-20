@@ -1,3 +1,7 @@
+## [1.1.8]
+
+* Ping
+
 ## [1.1.7]
 
 * SyncConfigWithJsonConfig

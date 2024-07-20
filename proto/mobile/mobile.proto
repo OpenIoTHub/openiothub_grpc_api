@@ -162,6 +162,7 @@ service CommonDeviceManager {
 }
 
 service Utils {
+    rpc Ping (google.protobuf.Empty) returns (google.protobuf.Empty) {}
 //    让后台服务登录服务器并同步配置
     rpc SyncConfigWithToken (IoTManagerServerAndToken) returns (OpenIoTHubOperationResponse) {}
     rpc SyncConfigWithJsonConfig (google.protobuf.StringValue) returns (OpenIoTHubOperationResponse) {}
