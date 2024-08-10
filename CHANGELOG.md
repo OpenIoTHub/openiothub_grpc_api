@@ -1,3 +1,9 @@
+## [1.1.8+1]
+
+* ## [1.1.8+1]
+
+* flutter pub upgrade --major-versions
+
 ## [1.1.8]
 
 * Ping
