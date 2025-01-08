@@ -60,6 +60,10 @@ class GatewayManagerClient extends $grpc.Client {
       '/pb.GatewayManager/GetGatewayJwtByGatewayUuid',
       ($2.StringValue value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $2.StringValue.fromBuffer(value));
+  static final _$getOpenIoTHubJwtByGatewayUuid = $grpc.ClientMethod<$2.StringValue, $2.StringValue>(
+      '/pb.GatewayManager/GetOpenIoTHubJwtByGatewayUuid',
+      ($2.StringValue value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $2.StringValue.fromBuffer(value));
 
   GatewayManagerClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -101,6 +105,10 @@ class GatewayManagerClient extends $grpc.Client {
 
   $grpc.ResponseFuture<$2.StringValue> getGatewayJwtByGatewayUuid($2.StringValue request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$getGatewayJwtByGatewayUuid, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$2.StringValue> getOpenIoTHubJwtByGatewayUuid($2.StringValue request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getOpenIoTHubJwtByGatewayUuid, request, options: options);
   }
 }
 
@@ -172,6 +180,13 @@ abstract class GatewayManagerServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $2.StringValue.fromBuffer(value),
         ($2.StringValue value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$2.StringValue, $2.StringValue>(
+        'GetOpenIoTHubJwtByGatewayUuid',
+        getOpenIoTHubJwtByGatewayUuid_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $2.StringValue.fromBuffer(value),
+        ($2.StringValue value) => value.writeToBuffer()));
   }
 
   $async.Future<$1.OperationResponse> addGateway_Pre($grpc.ServiceCall call, $async.Future<$5.GatewayInfo> request) async {
@@ -210,6 +225,10 @@ abstract class GatewayManagerServiceBase extends $grpc.Service {
     return getGatewayJwtByGatewayUuid(call, await request);
   }
 
+  $async.Future<$2.StringValue> getOpenIoTHubJwtByGatewayUuid_Pre($grpc.ServiceCall call, $async.Future<$2.StringValue> request) async {
+    return getOpenIoTHubJwtByGatewayUuid(call, await request);
+  }
+
   $async.Future<$1.OperationResponse> addGateway($grpc.ServiceCall call, $5.GatewayInfo request);
   $async.Future<$1.OperationResponse> delGateway($grpc.ServiceCall call, $5.GatewayInfo request);
   $async.Future<$1.OperationResponse> updateGateway($grpc.ServiceCall call, $5.GatewayInfo request);
@@ -219,4 +238,5 @@ abstract class GatewayManagerServiceBase extends $grpc.Service {
   $async.Future<$5.GatewayInfo> generateOneGatewayWithDefaultServer($grpc.ServiceCall call, $0.Empty request);
   $async.Future<$5.GatewayInfo> generateOneGatewayWithServerUuid($grpc.ServiceCall call, $2.StringValue request);
   $async.Future<$2.StringValue> getGatewayJwtByGatewayUuid($grpc.ServiceCall call, $2.StringValue request);
+  $async.Future<$2.StringValue> getOpenIoTHubJwtByGatewayUuid($grpc.ServiceCall call, $2.StringValue request);
 }

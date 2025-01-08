@@ -619,9 +619,17 @@ abstract class CommonDeviceManagerServiceBase extends $grpc.Service {
 }
 @$pb.GrpcServiceName('pb.Utils')
 class UtilsClient extends $grpc.Client {
+  static final _$ping = $grpc.ClientMethod<$1.Empty, $1.Empty>(
+      '/pb.Utils/Ping',
+      ($1.Empty value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $1.Empty.fromBuffer(value));
   static final _$syncConfigWithToken = $grpc.ClientMethod<$0.IoTManagerServerAndToken, $0.OpenIoTHubOperationResponse>(
       '/pb.Utils/SyncConfigWithToken',
       ($0.IoTManagerServerAndToken value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.OpenIoTHubOperationResponse.fromBuffer(value));
+  static final _$syncConfigWithJsonConfig = $grpc.ClientMethod<$2.StringValue, $0.OpenIoTHubOperationResponse>(
+      '/pb.Utils/SyncConfigWithJsonConfig',
+      ($2.StringValue value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $0.OpenIoTHubOperationResponse.fromBuffer(value));
   static final _$getAllConfig = $grpc.ClientMethod<$1.Empty, $2.StringValue>(
       '/pb.Utils/GetAllConfig',
@@ -654,8 +662,16 @@ class UtilsClient extends $grpc.Client {
       : super(channel, options: options,
         interceptors: interceptors);
 
+  $grpc.ResponseFuture<$1.Empty> ping($1.Empty request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$ping, request, options: options);
+  }
+
   $grpc.ResponseFuture<$0.OpenIoTHubOperationResponse> syncConfigWithToken($0.IoTManagerServerAndToken request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$syncConfigWithToken, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.OpenIoTHubOperationResponse> syncConfigWithJsonConfig($2.StringValue request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$syncConfigWithJsonConfig, request, options: options);
   }
 
   $grpc.ResponseFuture<$2.StringValue> getAllConfig($1.Empty request, {$grpc.CallOptions? options}) {
@@ -688,12 +704,26 @@ abstract class UtilsServiceBase extends $grpc.Service {
   $core.String get $name => 'pb.Utils';
 
   UtilsServiceBase() {
+    $addMethod($grpc.ServiceMethod<$1.Empty, $1.Empty>(
+        'Ping',
+        ping_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $1.Empty.fromBuffer(value),
+        ($1.Empty value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$0.IoTManagerServerAndToken, $0.OpenIoTHubOperationResponse>(
         'SyncConfigWithToken',
         syncConfigWithToken_Pre,
         false,
         false,
         ($core.List<$core.int> value) => $0.IoTManagerServerAndToken.fromBuffer(value),
+        ($0.OpenIoTHubOperationResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$2.StringValue, $0.OpenIoTHubOperationResponse>(
+        'SyncConfigWithJsonConfig',
+        syncConfigWithJsonConfig_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $2.StringValue.fromBuffer(value),
         ($0.OpenIoTHubOperationResponse value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$1.Empty, $2.StringValue>(
         'GetAllConfig',
@@ -739,8 +769,16 @@ abstract class UtilsServiceBase extends $grpc.Service {
         ($0.TokenModel value) => value.writeToBuffer()));
   }
 
+  $async.Future<$1.Empty> ping_Pre($grpc.ServiceCall call, $async.Future<$1.Empty> request) async {
+    return ping(call, await request);
+  }
+
   $async.Future<$0.OpenIoTHubOperationResponse> syncConfigWithToken_Pre($grpc.ServiceCall call, $async.Future<$0.IoTManagerServerAndToken> request) async {
     return syncConfigWithToken(call, await request);
+  }
+
+  $async.Future<$0.OpenIoTHubOperationResponse> syncConfigWithJsonConfig_Pre($grpc.ServiceCall call, $async.Future<$2.StringValue> request) async {
+    return syncConfigWithJsonConfig(call, await request);
   }
 
   $async.Future<$2.StringValue> getAllConfig_Pre($grpc.ServiceCall call, $async.Future<$1.Empty> request) async {
@@ -767,7 +805,9 @@ abstract class UtilsServiceBase extends $grpc.Service {
     return getTokenModel(call, await request);
   }
 
+  $async.Future<$1.Empty> ping($grpc.ServiceCall call, $1.Empty request);
   $async.Future<$0.OpenIoTHubOperationResponse> syncConfigWithToken($grpc.ServiceCall call, $0.IoTManagerServerAndToken request);
+  $async.Future<$0.OpenIoTHubOperationResponse> syncConfigWithJsonConfig($grpc.ServiceCall call, $2.StringValue request);
   $async.Future<$2.StringValue> getAllConfig($grpc.ServiceCall call, $1.Empty request);
   $async.Future<$1.Empty> loadAllConfig($grpc.ServiceCall call, $2.StringValue request);
   $async.Future<$0.MDNSServiceList> getAllmDNSServiceList($grpc.ServiceCall call, $1.Empty request);

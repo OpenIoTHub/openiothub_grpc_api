@@ -31,6 +31,8 @@ service UserManager {
 //    业务相关操作
 //    获取所有配置(网关、设备、配置等)用于APP的初始化
     rpc GetAllConfig (google.protobuf.Empty) returns (google.protobuf.StringValue) {}
+//    注销自己的账号
+    rpc DeleteMyAccount (LoginInfo) returns (OperationResponse) {}
 }
 
 message LoginInfo{
