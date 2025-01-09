@@ -9,8 +9,8 @@ require (
 
 require (
 	github.com/golang/protobuf v1.5.4 // indirect
-	golang.org/x/net v0.30.0 // indirect
-	golang.org/x/sys v0.26.0 // indirect
-	golang.org/x/text v0.19.0 // indirect
-	google.golang.org/genproto v0.0.0-20201026171402-d4b8fe4fd877 // indirect
+	golang.org/x/net v0.33.0 // indirect
+	golang.org/x/sys v0.28.0 // indirect
+	golang.org/x/text v0.21.0 // indirect
+	google.golang.org/genproto v0.0.0-20250106144421-5f5ef82da422 // indirect
 )
