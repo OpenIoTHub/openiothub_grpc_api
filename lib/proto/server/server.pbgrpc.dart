@@ -2,7 +2,7 @@
 //  Generated code. Do not modify.
 //  source: proto/server/server.proto
 //
-// @dart = 2.12
+// @dart = 3.3
 
 // ignore_for_file: annotate_overrides, camel_case_types, comment_references
 // ignore_for_file: constant_identifier_names, library_prefixes
@@ -112,24 +112,24 @@ abstract class HttpManagerServiceBase extends $grpc.Service {
         ($0.HTTPList value) => value.writeToBuffer()));
   }
 
-  $async.Future<$0.HTTPConfig> createOneHTTP_Pre($grpc.ServiceCall call, $async.Future<$0.HTTPConfig> request) async {
-    return createOneHTTP(call, await request);
+  $async.Future<$0.HTTPConfig> createOneHTTP_Pre($grpc.ServiceCall $call, $async.Future<$0.HTTPConfig> $request) async {
+    return createOneHTTP($call, await $request);
   }
 
-  $async.Future<$0.HTTPConfig> updateOneHTTP_Pre($grpc.ServiceCall call, $async.Future<$0.HTTPConfig> request) async {
-    return updateOneHTTP(call, await request);
+  $async.Future<$0.HTTPConfig> updateOneHTTP_Pre($grpc.ServiceCall $call, $async.Future<$0.HTTPConfig> $request) async {
+    return updateOneHTTP($call, await $request);
   }
 
-  $async.Future<$1.Empty> deleteOneHTTP_Pre($grpc.ServiceCall call, $async.Future<$0.HTTPConfig> request) async {
-    return deleteOneHTTP(call, await request);
+  $async.Future<$1.Empty> deleteOneHTTP_Pre($grpc.ServiceCall $call, $async.Future<$0.HTTPConfig> $request) async {
+    return deleteOneHTTP($call, await $request);
   }
 
-  $async.Future<$0.HTTPConfig> getOneHTTP_Pre($grpc.ServiceCall call, $async.Future<$0.HTTPConfig> request) async {
-    return getOneHTTP(call, await request);
+  $async.Future<$0.HTTPConfig> getOneHTTP_Pre($grpc.ServiceCall $call, $async.Future<$0.HTTPConfig> $request) async {
+    return getOneHTTP($call, await $request);
   }
 
-  $async.Future<$0.HTTPList> getAllHTTP_Pre($grpc.ServiceCall call, $async.Future<$0.Device> request) async {
-    return getAllHTTP(call, await request);
+  $async.Future<$0.HTTPList> getAllHTTP_Pre($grpc.ServiceCall $call, $async.Future<$0.Device> $request) async {
+    return getAllHTTP($call, await $request);
   }
 
   $async.Future<$0.HTTPConfig> createOneHTTP($grpc.ServiceCall call, $0.HTTPConfig request);

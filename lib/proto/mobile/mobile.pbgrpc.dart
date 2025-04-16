@@ -2,7 +2,7 @@
 //  Generated code. Do not modify.
 //  source: proto/mobile/mobile.proto
 //
-// @dart = 2.12
+// @dart = 3.3
 
 // ignore_for_file: annotate_overrides, camel_case_types, comment_references
 // ignore_for_file: constant_identifier_names, library_prefixes
@@ -59,6 +59,10 @@ class SessionManagerClient extends $grpc.Client {
       '/pb.SessionManager/RefreshmDNSProxyList',
       ($0.SessionConfig value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $1.Empty.fromBuffer(value));
+  static final _$createTcpProxyList = $grpc.ClientMethod<$0.PortList, $1.Empty>(
+      '/pb.SessionManager/CreateTcpProxyList',
+      ($0.PortList value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $1.Empty.fromBuffer(value));
   static final _$getAllTCP = $grpc.ClientMethod<$0.SessionConfig, $0.PortList>(
       '/pb.SessionManager/GetAllTCP',
       ($0.SessionConfig value) => value.writeToBuffer(),
@@ -108,6 +112,10 @@ class SessionManagerClient extends $grpc.Client {
 
   $grpc.ResponseFuture<$1.Empty> refreshmDNSProxyList($0.SessionConfig request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$refreshmDNSProxyList, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$1.Empty> createTcpProxyList($0.PortList request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$createTcpProxyList, request, options: options);
   }
 
   $grpc.ResponseFuture<$0.PortList> getAllTCP($0.SessionConfig request, {$grpc.CallOptions? options}) {
@@ -187,6 +195,13 @@ abstract class SessionManagerServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $0.SessionConfig.fromBuffer(value),
         ($1.Empty value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.PortList, $1.Empty>(
+        'CreateTcpProxyList',
+        createTcpProxyList_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.PortList.fromBuffer(value),
+        ($1.Empty value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$0.SessionConfig, $0.PortList>(
         'GetAllTCP',
         getAllTCP_Pre,
@@ -203,48 +218,52 @@ abstract class SessionManagerServiceBase extends $grpc.Service {
         ($0.OpenIoTHubOperationResponse value) => value.writeToBuffer()));
   }
 
-  $async.Future<$0.SessionConfig> createOneSession_Pre($grpc.ServiceCall call, $async.Future<$0.SessionConfig> request) async {
-    return createOneSession(call, await request);
+  $async.Future<$0.SessionConfig> createOneSession_Pre($grpc.ServiceCall $call, $async.Future<$0.SessionConfig> $request) async {
+    return createOneSession($call, await $request);
   }
 
-  $async.Future<$1.Empty> deleteOneSession_Pre($grpc.ServiceCall call, $async.Future<$0.SessionConfig> request) async {
-    return deleteOneSession(call, await request);
+  $async.Future<$1.Empty> deleteOneSession_Pre($grpc.ServiceCall $call, $async.Future<$0.SessionConfig> $request) async {
+    return deleteOneSession($call, await $request);
   }
 
-  $async.Future<$0.SessionConfig> getOneSession_Pre($grpc.ServiceCall call, $async.Future<$0.SessionConfig> request) async {
-    return getOneSession(call, await request);
+  $async.Future<$0.SessionConfig> getOneSession_Pre($grpc.ServiceCall $call, $async.Future<$0.SessionConfig> $request) async {
+    return getOneSession($call, await $request);
   }
 
-  $async.Future<$0.SessionList> getAllSession_Pre($grpc.ServiceCall call, $async.Future<$1.Empty> request) async {
-    return getAllSession(call, await request);
+  $async.Future<$0.SessionList> getAllSession_Pre($grpc.ServiceCall $call, $async.Future<$1.Empty> $request) async {
+    return getAllSession($call, await $request);
   }
 
-  $async.Future<$0.SessionConfig> updateSessionNameDescription_Pre($grpc.ServiceCall call, $async.Future<$0.SessionConfig> request) async {
-    return updateSessionNameDescription(call, await request);
+  $async.Future<$0.SessionConfig> updateSessionNameDescription_Pre($grpc.ServiceCall $call, $async.Future<$0.SessionConfig> $request) async {
+    return updateSessionNameDescription($call, await $request);
   }
 
-  $async.Future<$0.SOCKS5Config> createOneSOCKS5_Pre($grpc.ServiceCall call, $async.Future<$0.SOCKS5Config> request) async {
-    return createOneSOCKS5(call, await request);
+  $async.Future<$0.SOCKS5Config> createOneSOCKS5_Pre($grpc.ServiceCall $call, $async.Future<$0.SOCKS5Config> $request) async {
+    return createOneSOCKS5($call, await $request);
   }
 
-  $async.Future<$1.Empty> deleteOneSOCKS5_Pre($grpc.ServiceCall call, $async.Future<$0.SOCKS5Config> request) async {
-    return deleteOneSOCKS5(call, await request);
+  $async.Future<$1.Empty> deleteOneSOCKS5_Pre($grpc.ServiceCall $call, $async.Future<$0.SOCKS5Config> $request) async {
+    return deleteOneSOCKS5($call, await $request);
   }
 
-  $async.Future<$0.SOCKS5Config> getOneSOCKS5_Pre($grpc.ServiceCall call, $async.Future<$0.SOCKS5Config> request) async {
-    return getOneSOCKS5(call, await request);
+  $async.Future<$0.SOCKS5Config> getOneSOCKS5_Pre($grpc.ServiceCall $call, $async.Future<$0.SOCKS5Config> $request) async {
+    return getOneSOCKS5($call, await $request);
   }
 
-  $async.Future<$1.Empty> refreshmDNSProxyList_Pre($grpc.ServiceCall call, $async.Future<$0.SessionConfig> request) async {
-    return refreshmDNSProxyList(call, await request);
+  $async.Future<$1.Empty> refreshmDNSProxyList_Pre($grpc.ServiceCall $call, $async.Future<$0.SessionConfig> $request) async {
+    return refreshmDNSProxyList($call, await $request);
   }
 
-  $async.Future<$0.PortList> getAllTCP_Pre($grpc.ServiceCall call, $async.Future<$0.SessionConfig> request) async {
-    return getAllTCP(call, await request);
+  $async.Future<$1.Empty> createTcpProxyList_Pre($grpc.ServiceCall $call, $async.Future<$0.PortList> $request) async {
+    return createTcpProxyList($call, await $request);
   }
 
-  $async.Future<$0.OpenIoTHubOperationResponse> deleteRemoteGatewayConfig_Pre($grpc.ServiceCall call, $async.Future<$0.SessionConfig> request) async {
-    return deleteRemoteGatewayConfig(call, await request);
+  $async.Future<$0.PortList> getAllTCP_Pre($grpc.ServiceCall $call, $async.Future<$0.SessionConfig> $request) async {
+    return getAllTCP($call, await $request);
+  }
+
+  $async.Future<$0.OpenIoTHubOperationResponse> deleteRemoteGatewayConfig_Pre($grpc.ServiceCall $call, $async.Future<$0.SessionConfig> $request) async {
+    return deleteRemoteGatewayConfig($call, await $request);
   }
 
   $async.Future<$0.SessionConfig> createOneSession($grpc.ServiceCall call, $0.SessionConfig request);
@@ -256,6 +275,7 @@ abstract class SessionManagerServiceBase extends $grpc.Service {
   $async.Future<$1.Empty> deleteOneSOCKS5($grpc.ServiceCall call, $0.SOCKS5Config request);
   $async.Future<$0.SOCKS5Config> getOneSOCKS5($grpc.ServiceCall call, $0.SOCKS5Config request);
   $async.Future<$1.Empty> refreshmDNSProxyList($grpc.ServiceCall call, $0.SessionConfig request);
+  $async.Future<$1.Empty> createTcpProxyList($grpc.ServiceCall call, $0.PortList request);
   $async.Future<$0.PortList> getAllTCP($grpc.ServiceCall call, $0.SessionConfig request);
   $async.Future<$0.OpenIoTHubOperationResponse> deleteRemoteGatewayConfig($grpc.ServiceCall call, $0.SessionConfig request);
 }
@@ -531,72 +551,72 @@ abstract class CommonDeviceManagerServiceBase extends $grpc.Service {
         ($0.PortList value) => value.writeToBuffer()));
   }
 
-  $async.Future<$1.Empty> addDevice_Pre($grpc.ServiceCall call, $async.Future<$0.Device> request) async {
-    return addDevice(call, await request);
+  $async.Future<$1.Empty> addDevice_Pre($grpc.ServiceCall $call, $async.Future<$0.Device> $request) async {
+    return addDevice($call, await $request);
   }
 
-  $async.Future<$1.Empty> delDevice_Pre($grpc.ServiceCall call, $async.Future<$0.Device> request) async {
-    return delDevice(call, await request);
+  $async.Future<$1.Empty> delDevice_Pre($grpc.ServiceCall $call, $async.Future<$0.Device> $request) async {
+    return delDevice($call, await $request);
   }
 
-  $async.Future<$0.DeviceList> getAllDevice_Pre($grpc.ServiceCall call, $async.Future<$1.Empty> request) async {
-    return getAllDevice(call, await request);
+  $async.Future<$0.DeviceList> getAllDevice_Pre($grpc.ServiceCall $call, $async.Future<$1.Empty> $request) async {
+    return getAllDevice($call, await $request);
   }
 
-  $async.Future<$1.Empty> setDeviceMac_Pre($grpc.ServiceCall call, $async.Future<$0.Device> request) async {
-    return setDeviceMac(call, await request);
+  $async.Future<$1.Empty> setDeviceMac_Pre($grpc.ServiceCall $call, $async.Future<$0.Device> $request) async {
+    return setDeviceMac($call, await $request);
   }
 
-  $async.Future<$1.Empty> wakeOnLAN_Pre($grpc.ServiceCall call, $async.Future<$0.Device> request) async {
-    return wakeOnLAN(call, await request);
+  $async.Future<$1.Empty> wakeOnLAN_Pre($grpc.ServiceCall $call, $async.Future<$0.Device> $request) async {
+    return wakeOnLAN($call, await $request);
   }
 
-  $async.Future<$0.PortConfig> createOneTCP_Pre($grpc.ServiceCall call, $async.Future<$0.PortConfig> request) async {
-    return createOneTCP(call, await request);
+  $async.Future<$0.PortConfig> createOneTCP_Pre($grpc.ServiceCall $call, $async.Future<$0.PortConfig> $request) async {
+    return createOneTCP($call, await $request);
   }
 
-  $async.Future<$1.Empty> deleteOneTCP_Pre($grpc.ServiceCall call, $async.Future<$0.PortConfig> request) async {
-    return deleteOneTCP(call, await request);
+  $async.Future<$1.Empty> deleteOneTCP_Pre($grpc.ServiceCall $call, $async.Future<$0.PortConfig> $request) async {
+    return deleteOneTCP($call, await $request);
   }
 
-  $async.Future<$0.PortConfig> getOneTCP_Pre($grpc.ServiceCall call, $async.Future<$0.PortConfig> request) async {
-    return getOneTCP(call, await request);
+  $async.Future<$0.PortConfig> getOneTCP_Pre($grpc.ServiceCall $call, $async.Future<$0.PortConfig> $request) async {
+    return getOneTCP($call, await $request);
   }
 
-  $async.Future<$0.PortList> getAllTCP_Pre($grpc.ServiceCall call, $async.Future<$0.Device> request) async {
-    return getAllTCP(call, await request);
+  $async.Future<$0.PortList> getAllTCP_Pre($grpc.ServiceCall $call, $async.Future<$0.Device> $request) async {
+    return getAllTCP($call, await $request);
   }
 
-  $async.Future<$0.PortConfig> createOneUDP_Pre($grpc.ServiceCall call, $async.Future<$0.PortConfig> request) async {
-    return createOneUDP(call, await request);
+  $async.Future<$0.PortConfig> createOneUDP_Pre($grpc.ServiceCall $call, $async.Future<$0.PortConfig> $request) async {
+    return createOneUDP($call, await $request);
   }
 
-  $async.Future<$1.Empty> deleteOneUDP_Pre($grpc.ServiceCall call, $async.Future<$0.PortConfig> request) async {
-    return deleteOneUDP(call, await request);
+  $async.Future<$1.Empty> deleteOneUDP_Pre($grpc.ServiceCall $call, $async.Future<$0.PortConfig> $request) async {
+    return deleteOneUDP($call, await $request);
   }
 
-  $async.Future<$0.PortConfig> getOneUDP_Pre($grpc.ServiceCall call, $async.Future<$0.PortConfig> request) async {
-    return getOneUDP(call, await request);
+  $async.Future<$0.PortConfig> getOneUDP_Pre($grpc.ServiceCall $call, $async.Future<$0.PortConfig> $request) async {
+    return getOneUDP($call, await $request);
   }
 
-  $async.Future<$0.PortList> getAllUDP_Pre($grpc.ServiceCall call, $async.Future<$0.Device> request) async {
-    return getAllUDP(call, await request);
+  $async.Future<$0.PortList> getAllUDP_Pre($grpc.ServiceCall $call, $async.Future<$0.Device> $request) async {
+    return getAllUDP($call, await $request);
   }
 
-  $async.Future<$0.PortConfig> createOneFTP_Pre($grpc.ServiceCall call, $async.Future<$0.PortConfig> request) async {
-    return createOneFTP(call, await request);
+  $async.Future<$0.PortConfig> createOneFTP_Pre($grpc.ServiceCall $call, $async.Future<$0.PortConfig> $request) async {
+    return createOneFTP($call, await $request);
   }
 
-  $async.Future<$1.Empty> deleteOneFTP_Pre($grpc.ServiceCall call, $async.Future<$0.PortConfig> request) async {
-    return deleteOneFTP(call, await request);
+  $async.Future<$1.Empty> deleteOneFTP_Pre($grpc.ServiceCall $call, $async.Future<$0.PortConfig> $request) async {
+    return deleteOneFTP($call, await $request);
   }
 
-  $async.Future<$0.PortConfig> getOneFTP_Pre($grpc.ServiceCall call, $async.Future<$0.PortConfig> request) async {
-    return getOneFTP(call, await request);
+  $async.Future<$0.PortConfig> getOneFTP_Pre($grpc.ServiceCall $call, $async.Future<$0.PortConfig> $request) async {
+    return getOneFTP($call, await $request);
   }
 
-  $async.Future<$0.PortList> getAllFTP_Pre($grpc.ServiceCall call, $async.Future<$0.Device> request) async {
-    return getAllFTP(call, await request);
+  $async.Future<$0.PortList> getAllFTP_Pre($grpc.ServiceCall $call, $async.Future<$0.Device> $request) async {
+    return getAllFTP($call, await $request);
   }
 
   $async.Future<$1.Empty> addDevice($grpc.ServiceCall call, $0.Device request);
@@ -769,40 +789,40 @@ abstract class UtilsServiceBase extends $grpc.Service {
         ($0.TokenModel value) => value.writeToBuffer()));
   }
 
-  $async.Future<$1.Empty> ping_Pre($grpc.ServiceCall call, $async.Future<$1.Empty> request) async {
-    return ping(call, await request);
+  $async.Future<$1.Empty> ping_Pre($grpc.ServiceCall $call, $async.Future<$1.Empty> $request) async {
+    return ping($call, await $request);
   }
 
-  $async.Future<$0.OpenIoTHubOperationResponse> syncConfigWithToken_Pre($grpc.ServiceCall call, $async.Future<$0.IoTManagerServerAndToken> request) async {
-    return syncConfigWithToken(call, await request);
+  $async.Future<$0.OpenIoTHubOperationResponse> syncConfigWithToken_Pre($grpc.ServiceCall $call, $async.Future<$0.IoTManagerServerAndToken> $request) async {
+    return syncConfigWithToken($call, await $request);
   }
 
-  $async.Future<$0.OpenIoTHubOperationResponse> syncConfigWithJsonConfig_Pre($grpc.ServiceCall call, $async.Future<$2.StringValue> request) async {
-    return syncConfigWithJsonConfig(call, await request);
+  $async.Future<$0.OpenIoTHubOperationResponse> syncConfigWithJsonConfig_Pre($grpc.ServiceCall $call, $async.Future<$2.StringValue> $request) async {
+    return syncConfigWithJsonConfig($call, await $request);
   }
 
-  $async.Future<$2.StringValue> getAllConfig_Pre($grpc.ServiceCall call, $async.Future<$1.Empty> request) async {
-    return getAllConfig(call, await request);
+  $async.Future<$2.StringValue> getAllConfig_Pre($grpc.ServiceCall $call, $async.Future<$1.Empty> $request) async {
+    return getAllConfig($call, await $request);
   }
 
-  $async.Future<$1.Empty> loadAllConfig_Pre($grpc.ServiceCall call, $async.Future<$2.StringValue> request) async {
-    return loadAllConfig(call, await request);
+  $async.Future<$1.Empty> loadAllConfig_Pre($grpc.ServiceCall $call, $async.Future<$2.StringValue> $request) async {
+    return loadAllConfig($call, await $request);
   }
 
-  $async.Future<$0.MDNSServiceList> getAllmDNSServiceList_Pre($grpc.ServiceCall call, $async.Future<$1.Empty> request) async {
-    return getAllmDNSServiceList(call, await request);
+  $async.Future<$0.MDNSServiceList> getAllmDNSServiceList_Pre($grpc.ServiceCall $call, $async.Future<$1.Empty> $request) async {
+    return getAllmDNSServiceList($call, await $request);
   }
 
-  $async.Future<$0.MDNSServiceList> getmDNSServiceListByType_Pre($grpc.ServiceCall call, $async.Future<$2.StringValue> request) async {
-    return getmDNSServiceListByType(call, await request);
+  $async.Future<$0.MDNSServiceList> getmDNSServiceListByType_Pre($grpc.ServiceCall $call, $async.Future<$2.StringValue> $request) async {
+    return getmDNSServiceListByType($call, await $request);
   }
 
-  $async.Future<$2.StringValue> convertOctonaryUtf8_Pre($grpc.ServiceCall call, $async.Future<$2.StringValue> request) async {
-    return convertOctonaryUtf8(call, await request);
+  $async.Future<$2.StringValue> convertOctonaryUtf8_Pre($grpc.ServiceCall $call, $async.Future<$2.StringValue> $request) async {
+    return convertOctonaryUtf8($call, await $request);
   }
 
-  $async.Future<$0.TokenModel> getTokenModel_Pre($grpc.ServiceCall call, $async.Future<$2.StringValue> request) async {
-    return getTokenModel(call, await request);
+  $async.Future<$0.TokenModel> getTokenModel_Pre($grpc.ServiceCall $call, $async.Future<$2.StringValue> $request) async {
+    return getTokenModel($call, await $request);
   }
 
   $async.Future<$1.Empty> ping($grpc.ServiceCall call, $1.Empty request);

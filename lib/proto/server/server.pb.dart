@@ -2,7 +2,7 @@
 //  Generated code. Do not modify.
 //  source: proto/server/server.proto
 //
-// @dart = 2.12
+// @dart = 3.3
 
 // ignore_for_file: annotate_overrides, camel_case_types, comment_references
 // ignore_for_file: constant_identifier_names, library_prefixes
@@ -12,6 +12,8 @@
 import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
+
+export 'package:protobuf/protobuf.dart' show GeneratedMessageGenericExtensions;
 
 class ServerGoResponseMessage extends $pb.GeneratedMessage {
   factory ServerGoResponseMessage({
@@ -65,7 +67,7 @@ class ServerGoResponseMessage extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $core.bool hasCode() => $_has(0);
   @$pb.TagNumber(1)
-  void clearCode() => clearField(1);
+  void clearCode() => $_clearField(1);
 
   @$pb.TagNumber(2)
   $core.String get message => $_getSZ(1);
@@ -74,7 +76,7 @@ class ServerGoResponseMessage extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $core.bool hasMessage() => $_has(1);
   @$pb.TagNumber(2)
-  void clearMessage() => clearField(2);
+  void clearMessage() => $_clearField(2);
 }
 
 class HTTPConfig extends $pb.GeneratedMessage {
@@ -164,7 +166,7 @@ class HTTPConfig extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $core.bool hasRunId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearRunId() => clearField(1);
+  void clearRunId() => $_clearField(1);
 
   @$pb.TagNumber(2)
   $core.String get domain => $_getSZ(1);
@@ -173,7 +175,7 @@ class HTTPConfig extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $core.bool hasDomain() => $_has(1);
   @$pb.TagNumber(2)
-  void clearDomain() => clearField(2);
+  void clearDomain() => $_clearField(2);
 
   @$pb.TagNumber(3)
   $core.String get remoteIP => $_getSZ(2);
@@ -182,7 +184,7 @@ class HTTPConfig extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   $core.bool hasRemoteIP() => $_has(2);
   @$pb.TagNumber(3)
-  void clearRemoteIP() => clearField(3);
+  void clearRemoteIP() => $_clearField(3);
 
   @$pb.TagNumber(4)
   $core.int get remotePort => $_getIZ(3);
@@ -191,7 +193,7 @@ class HTTPConfig extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   $core.bool hasRemotePort() => $_has(3);
   @$pb.TagNumber(4)
-  void clearRemotePort() => clearField(4);
+  void clearRemotePort() => $_clearField(4);
 
   @$pb.TagNumber(5)
   $core.String get userName => $_getSZ(4);
@@ -200,7 +202,7 @@ class HTTPConfig extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   $core.bool hasUserName() => $_has(4);
   @$pb.TagNumber(5)
-  void clearUserName() => clearField(5);
+  void clearUserName() => $_clearField(5);
 
   @$pb.TagNumber(6)
   $core.String get password => $_getSZ(5);
@@ -209,7 +211,7 @@ class HTTPConfig extends $pb.GeneratedMessage {
   @$pb.TagNumber(6)
   $core.bool hasPassword() => $_has(5);
   @$pb.TagNumber(6)
-  void clearPassword() => clearField(6);
+  void clearPassword() => $_clearField(6);
 
   @$pb.TagNumber(7)
   $core.bool get ifHttps => $_getBF(6);
@@ -218,7 +220,7 @@ class HTTPConfig extends $pb.GeneratedMessage {
   @$pb.TagNumber(7)
   $core.bool hasIfHttps() => $_has(6);
   @$pb.TagNumber(7)
-  void clearIfHttps() => clearField(7);
+  void clearIfHttps() => $_clearField(7);
 
   @$pb.TagNumber(8)
   $core.String get description => $_getSZ(7);
@@ -227,7 +229,7 @@ class HTTPConfig extends $pb.GeneratedMessage {
   @$pb.TagNumber(8)
   $core.bool hasDescription() => $_has(7);
   @$pb.TagNumber(8)
-  void clearDescription() => clearField(8);
+  void clearDescription() => $_clearField(8);
 
   @$pb.TagNumber(9)
   $core.bool get remotePortStatus => $_getBF(8);
@@ -236,7 +238,7 @@ class HTTPConfig extends $pb.GeneratedMessage {
   @$pb.TagNumber(9)
   $core.bool hasRemotePortStatus() => $_has(8);
   @$pb.TagNumber(9)
-  void clearRemotePortStatus() => clearField(9);
+  void clearRemotePortStatus() => $_clearField(9);
 }
 
 class HTTPList extends $pb.GeneratedMessage {
@@ -280,7 +282,7 @@ class HTTPList extends $pb.GeneratedMessage {
   static HTTPList? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.List<HTTPConfig> get hTTPConfigs => $_getList(0);
+  $pb.PbList<HTTPConfig> get hTTPConfigs => $_getList(0);
 }
 
 class Device extends $pb.GeneratedMessage {
@@ -345,7 +347,7 @@ class Device extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $core.bool hasRunId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearRunId() => clearField(1);
+  void clearRunId() => $_clearField(1);
 
   @$pb.TagNumber(2)
   $core.String get addr => $_getSZ(1);
@@ -354,7 +356,7 @@ class Device extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $core.bool hasAddr() => $_has(1);
   @$pb.TagNumber(2)
-  void clearAddr() => clearField(2);
+  void clearAddr() => $_clearField(2);
 
   @$pb.TagNumber(3)
   $core.String get mac => $_getSZ(2);
@@ -363,7 +365,7 @@ class Device extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   $core.bool hasMac() => $_has(2);
   @$pb.TagNumber(3)
-  void clearMac() => clearField(3);
+  void clearMac() => $_clearField(3);
 
   @$pb.TagNumber(4)
   $core.String get description => $_getSZ(3);
@@ -372,7 +374,7 @@ class Device extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   $core.bool hasDescription() => $_has(3);
   @$pb.TagNumber(4)
-  void clearDescription() => clearField(4);
+  void clearDescription() => $_clearField(4);
 }
 
 class DeviceList extends $pb.GeneratedMessage {
@@ -416,7 +418,7 @@ class DeviceList extends $pb.GeneratedMessage {
   static DeviceList? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.List<Device> get devices => $_getList(0);
+  $pb.PbList<Device> get devices => $_getList(0);
 }
 
 

@@ -128,6 +128,7 @@ service SessionManager {
     //:TODO  获取所有的设备列表
     // mDNS刷新列表
     rpc RefreshmDNSProxyList (SessionConfig) returns (google.protobuf.Empty) {}
+    rpc CreateTcpProxyList (PortList) returns (google.protobuf.Empty) {}
     // 获取通过mDNS自动映射的TCP端口列表，然后可以查看页面
     rpc GetAllTCP (SessionConfig) returns (PortList) {}
     //:TODO VPN接口

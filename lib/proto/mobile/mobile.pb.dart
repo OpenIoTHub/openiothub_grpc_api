@@ -2,7 +2,7 @@
 //  Generated code. Do not modify.
 //  source: proto/mobile/mobile.proto
 //
-// @dart = 2.12
+// @dart = 3.3
 
 // ignore_for_file: annotate_overrides, camel_case_types, comment_references
 // ignore_for_file: constant_identifier_names, library_prefixes
@@ -12,6 +12,8 @@
 import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
+
+export 'package:protobuf/protobuf.dart' show GeneratedMessageGenericExtensions;
 
 class OpenIoTHubOperationResponse extends $pb.GeneratedMessage {
   factory OpenIoTHubOperationResponse({
@@ -65,7 +67,7 @@ class OpenIoTHubOperationResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $core.bool hasCode() => $_has(0);
   @$pb.TagNumber(1)
-  void clearCode() => clearField(1);
+  void clearCode() => $_clearField(1);
 
   @$pb.TagNumber(2)
   $core.String get msg => $_getSZ(1);
@@ -74,7 +76,7 @@ class OpenIoTHubOperationResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $core.bool hasMsg() => $_has(1);
   @$pb.TagNumber(2)
-  void clearMsg() => clearField(2);
+  void clearMsg() => $_clearField(2);
 }
 
 class IoTManagerServerAndToken extends $pb.GeneratedMessage {
@@ -134,7 +136,7 @@ class IoTManagerServerAndToken extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $core.bool hasHost() => $_has(0);
   @$pb.TagNumber(1)
-  void clearHost() => clearField(1);
+  void clearHost() => $_clearField(1);
 
   @$pb.TagNumber(2)
   $core.int get port => $_getIZ(1);
@@ -143,7 +145,7 @@ class IoTManagerServerAndToken extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $core.bool hasPort() => $_has(1);
   @$pb.TagNumber(2)
-  void clearPort() => clearField(2);
+  void clearPort() => $_clearField(2);
 
   @$pb.TagNumber(3)
   $core.String get token => $_getSZ(2);
@@ -152,7 +154,7 @@ class IoTManagerServerAndToken extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   $core.bool hasToken() => $_has(2);
   @$pb.TagNumber(3)
-  void clearToken() => clearField(3);
+  void clearToken() => $_clearField(3);
 }
 
 class MDNSService extends $pb.GeneratedMessage {
@@ -217,7 +219,7 @@ class MDNSService extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $core.bool hasInstance() => $_has(0);
   @$pb.TagNumber(1)
-  void clearInstance() => clearField(1);
+  void clearInstance() => $_clearField(1);
 
   @$pb.TagNumber(2)
   $core.String get iP => $_getSZ(1);
@@ -226,7 +228,7 @@ class MDNSService extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $core.bool hasIP() => $_has(1);
   @$pb.TagNumber(2)
-  void clearIP() => clearField(2);
+  void clearIP() => $_clearField(2);
 
   @$pb.TagNumber(3)
   $core.int get port => $_getIZ(2);
@@ -235,7 +237,7 @@ class MDNSService extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   $core.bool hasPort() => $_has(2);
   @$pb.TagNumber(3)
-  void clearPort() => clearField(3);
+  void clearPort() => $_clearField(3);
 
   @$pb.TagNumber(4)
   $core.String get mDNSInfo => $_getSZ(3);
@@ -244,7 +246,7 @@ class MDNSService extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   $core.bool hasMDNSInfo() => $_has(3);
   @$pb.TagNumber(4)
-  void clearMDNSInfo() => clearField(4);
+  void clearMDNSInfo() => $_clearField(4);
 }
 
 class Device extends $pb.GeneratedMessage {
@@ -319,7 +321,7 @@ class Device extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $core.bool hasUuid() => $_has(0);
   @$pb.TagNumber(1)
-  void clearUuid() => clearField(1);
+  void clearUuid() => $_clearField(1);
 
   @$pb.TagNumber(2)
   $core.String get runId => $_getSZ(1);
@@ -328,7 +330,7 @@ class Device extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $core.bool hasRunId() => $_has(1);
   @$pb.TagNumber(2)
-  void clearRunId() => clearField(2);
+  void clearRunId() => $_clearField(2);
 
   @$pb.TagNumber(3)
   $core.String get addr => $_getSZ(2);
@@ -337,7 +339,7 @@ class Device extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   $core.bool hasAddr() => $_has(2);
   @$pb.TagNumber(3)
-  void clearAddr() => clearField(3);
+  void clearAddr() => $_clearField(3);
 
   @$pb.TagNumber(4)
   $core.String get mac => $_getSZ(3);
@@ -346,7 +348,7 @@ class Device extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   $core.bool hasMac() => $_has(3);
   @$pb.TagNumber(4)
-  void clearMac() => clearField(4);
+  void clearMac() => $_clearField(4);
 
   @$pb.TagNumber(5)
   $core.String get name => $_getSZ(4);
@@ -355,7 +357,7 @@ class Device extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   $core.bool hasName() => $_has(4);
   @$pb.TagNumber(5)
-  void clearName() => clearField(5);
+  void clearName() => $_clearField(5);
 
   @$pb.TagNumber(6)
   $core.String get description => $_getSZ(5);
@@ -364,7 +366,7 @@ class Device extends $pb.GeneratedMessage {
   @$pb.TagNumber(6)
   $core.bool hasDescription() => $_has(5);
   @$pb.TagNumber(6)
-  void clearDescription() => clearField(6);
+  void clearDescription() => $_clearField(6);
 }
 
 class DeviceList extends $pb.GeneratedMessage {
@@ -408,7 +410,7 @@ class DeviceList extends $pb.GeneratedMessage {
   static DeviceList? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.List<Device> get devices => $_getList(0);
+  $pb.PbList<Device> get devices => $_getList(0);
 }
 
 /// 几种代理类型
@@ -489,7 +491,7 @@ class SessionConfig extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $core.bool hasRunId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearRunId() => clearField(1);
+  void clearRunId() => $_clearField(1);
 
   @$pb.TagNumber(2)
   $core.String get token => $_getSZ(1);
@@ -498,7 +500,7 @@ class SessionConfig extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $core.bool hasToken() => $_has(1);
   @$pb.TagNumber(2)
-  void clearToken() => clearField(2);
+  void clearToken() => $_clearField(2);
 
   @$pb.TagNumber(3)
   $core.String get name => $_getSZ(2);
@@ -507,7 +509,7 @@ class SessionConfig extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   $core.bool hasName() => $_has(2);
   @$pb.TagNumber(3)
-  void clearName() => clearField(3);
+  void clearName() => $_clearField(3);
 
   @$pb.TagNumber(4)
   $core.String get description => $_getSZ(3);
@@ -516,7 +518,7 @@ class SessionConfig extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   $core.bool hasDescription() => $_has(3);
   @$pb.TagNumber(4)
-  void clearDescription() => clearField(4);
+  void clearDescription() => $_clearField(4);
 
   @$pb.TagNumber(5)
   $core.bool get statusToClient => $_getBF(4);
@@ -525,7 +527,7 @@ class SessionConfig extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   $core.bool hasStatusToClient() => $_has(4);
   @$pb.TagNumber(5)
-  void clearStatusToClient() => clearField(5);
+  void clearStatusToClient() => $_clearField(5);
 
   @$pb.TagNumber(6)
   $core.bool get statusP2PAsClient => $_getBF(5);
@@ -534,7 +536,7 @@ class SessionConfig extends $pb.GeneratedMessage {
   @$pb.TagNumber(6)
   $core.bool hasStatusP2PAsClient() => $_has(5);
   @$pb.TagNumber(6)
-  void clearStatusP2PAsClient() => clearField(6);
+  void clearStatusP2PAsClient() => $_clearField(6);
 
   @$pb.TagNumber(7)
   $core.bool get statusP2PAsServer => $_getBF(6);
@@ -543,7 +545,7 @@ class SessionConfig extends $pb.GeneratedMessage {
   @$pb.TagNumber(7)
   $core.bool hasStatusP2PAsServer() => $_has(6);
   @$pb.TagNumber(7)
-  void clearStatusP2PAsServer() => clearField(7);
+  void clearStatusP2PAsServer() => $_clearField(7);
 }
 
 class SessionList extends $pb.GeneratedMessage {
@@ -587,7 +589,7 @@ class SessionList extends $pb.GeneratedMessage {
   static SessionList? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.List<SessionConfig> get sessionConfigs => $_getList(0);
+  $pb.PbList<SessionConfig> get sessionConfigs => $_getList(0);
 }
 
 class PortService extends $pb.GeneratedMessage {
@@ -595,7 +597,7 @@ class PortService extends $pb.GeneratedMessage {
     $core.String? ip,
     $core.int? port,
     $core.bool? isLocal,
-    $core.Map<$core.String, $core.String>? info,
+    $pb.PbMap<$core.String, $core.String>? info,
   }) {
     final $result = create();
     if (ip != null) {
@@ -653,7 +655,7 @@ class PortService extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $core.bool hasIp() => $_has(0);
   @$pb.TagNumber(1)
-  void clearIp() => clearField(1);
+  void clearIp() => $_clearField(1);
 
   /// int port;
   @$pb.TagNumber(2)
@@ -663,7 +665,7 @@ class PortService extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $core.bool hasPort() => $_has(1);
   @$pb.TagNumber(2)
-  void clearPort() => clearField(2);
+  void clearPort() => $_clearField(2);
 
   /// bool isLocal = false;
   @$pb.TagNumber(3)
@@ -673,12 +675,12 @@ class PortService extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   $core.bool hasIsLocal() => $_has(2);
   @$pb.TagNumber(3)
-  void clearIsLocal() => clearField(3);
+  void clearIsLocal() => $_clearField(3);
 
   /// 设备的注册信息
   /// Map<String, dynamic> info = Map<String, dynamic>();
   @$pb.TagNumber(4)
-  $core.Map<$core.String, $core.String> get info => $_getMap(3);
+  $pb.PbMap<$core.String, $core.String> get info => $_getMap(3);
 }
 
 class PortConfig extends $pb.GeneratedMessage {
@@ -779,11 +781,11 @@ class PortConfig extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   Device get device => $_getN(0);
   @$pb.TagNumber(1)
-  set device(Device v) { setField(1, v); }
+  set device(Device v) { $_setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasDevice() => $_has(0);
   @$pb.TagNumber(1)
-  void clearDevice() => clearField(1);
+  void clearDevice() => $_clearField(1);
   @$pb.TagNumber(1)
   Device ensureDevice() => $_ensure(0);
 
@@ -794,7 +796,7 @@ class PortConfig extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $core.bool hasUuid() => $_has(1);
   @$pb.TagNumber(2)
-  void clearUuid() => clearField(2);
+  void clearUuid() => $_clearField(2);
 
   @$pb.TagNumber(3)
   $core.String get name => $_getSZ(2);
@@ -803,7 +805,7 @@ class PortConfig extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   $core.bool hasName() => $_has(2);
   @$pb.TagNumber(3)
-  void clearName() => clearField(3);
+  void clearName() => $_clearField(3);
 
   @$pb.TagNumber(4)
   $core.String get description => $_getSZ(3);
@@ -812,7 +814,7 @@ class PortConfig extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   $core.bool hasDescription() => $_has(3);
   @$pb.TagNumber(4)
-  void clearDescription() => clearField(4);
+  void clearDescription() => $_clearField(4);
 
   @$pb.TagNumber(5)
   $core.int get localProt => $_getIZ(4);
@@ -821,7 +823,7 @@ class PortConfig extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   $core.bool hasLocalProt() => $_has(4);
   @$pb.TagNumber(5)
-  void clearLocalProt() => clearField(5);
+  void clearLocalProt() => $_clearField(5);
 
   @$pb.TagNumber(6)
   $core.int get remotePort => $_getIZ(5);
@@ -830,7 +832,7 @@ class PortConfig extends $pb.GeneratedMessage {
   @$pb.TagNumber(6)
   $core.bool hasRemotePort() => $_has(5);
   @$pb.TagNumber(6)
-  void clearRemotePort() => clearField(6);
+  void clearRemotePort() => $_clearField(6);
 
   @$pb.TagNumber(7)
   $core.bool get bindAllAddr => $_getBF(6);
@@ -839,7 +841,7 @@ class PortConfig extends $pb.GeneratedMessage {
   @$pb.TagNumber(7)
   $core.bool hasBindAllAddr() => $_has(6);
   @$pb.TagNumber(7)
-  void clearBindAllAddr() => clearField(7);
+  void clearBindAllAddr() => $_clearField(7);
 
   @$pb.TagNumber(8)
   $core.String get domain => $_getSZ(7);
@@ -848,7 +850,7 @@ class PortConfig extends $pb.GeneratedMessage {
   @$pb.TagNumber(8)
   $core.bool hasDomain() => $_has(7);
   @$pb.TagNumber(8)
-  void clearDomain() => clearField(8);
+  void clearDomain() => $_clearField(8);
 
   @$pb.TagNumber(9)
   $core.String get networkProtocol => $_getSZ(8);
@@ -857,7 +859,7 @@ class PortConfig extends $pb.GeneratedMessage {
   @$pb.TagNumber(9)
   $core.bool hasNetworkProtocol() => $_has(8);
   @$pb.TagNumber(9)
-  void clearNetworkProtocol() => clearField(9);
+  void clearNetworkProtocol() => $_clearField(9);
 
   @$pb.TagNumber(10)
   $core.String get applicationProtocol => $_getSZ(9);
@@ -866,7 +868,7 @@ class PortConfig extends $pb.GeneratedMessage {
   @$pb.TagNumber(10)
   $core.bool hasApplicationProtocol() => $_has(9);
   @$pb.TagNumber(10)
-  void clearApplicationProtocol() => clearField(10);
+  void clearApplicationProtocol() => $_clearField(10);
 
   @$pb.TagNumber(11)
   $core.bool get remotePortStatus => $_getBF(10);
@@ -875,16 +877,16 @@ class PortConfig extends $pb.GeneratedMessage {
   @$pb.TagNumber(11)
   $core.bool hasRemotePortStatus() => $_has(10);
   @$pb.TagNumber(11)
-  void clearRemotePortStatus() => clearField(11);
+  void clearRemotePortStatus() => $_clearField(11);
 
   @$pb.TagNumber(12)
   PortService get mDNSInfo => $_getN(11);
   @$pb.TagNumber(12)
-  set mDNSInfo(PortService v) { setField(12, v); }
+  set mDNSInfo(PortService v) { $_setField(12, v); }
   @$pb.TagNumber(12)
   $core.bool hasMDNSInfo() => $_has(11);
   @$pb.TagNumber(12)
-  void clearMDNSInfo() => clearField(12);
+  void clearMDNSInfo() => $_clearField(12);
   @$pb.TagNumber(12)
   PortService ensureMDNSInfo() => $_ensure(11);
 }
@@ -930,7 +932,7 @@ class PortList extends $pb.GeneratedMessage {
   static PortList? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.List<PortConfig> get portConfigs => $_getList(0);
+  $pb.PbList<PortConfig> get portConfigs => $_getList(0);
 }
 
 class SOCKS5Config extends $pb.GeneratedMessage {
@@ -1000,7 +1002,7 @@ class SOCKS5Config extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $core.bool hasRunId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearRunId() => clearField(1);
+  void clearRunId() => $_clearField(1);
 
   @$pb.TagNumber(2)
   $core.int get port => $_getIZ(1);
@@ -1009,7 +1011,7 @@ class SOCKS5Config extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $core.bool hasPort() => $_has(1);
   @$pb.TagNumber(2)
-  void clearPort() => clearField(2);
+  void clearPort() => $_clearField(2);
 
   @$pb.TagNumber(3)
   $core.String get password => $_getSZ(2);
@@ -1018,7 +1020,7 @@ class SOCKS5Config extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   $core.bool hasPassword() => $_has(2);
   @$pb.TagNumber(3)
-  void clearPassword() => clearField(3);
+  void clearPassword() => $_clearField(3);
 
   @$pb.TagNumber(4)
   $core.String get encType => $_getSZ(3);
@@ -1027,7 +1029,7 @@ class SOCKS5Config extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   $core.bool hasEncType() => $_has(3);
   @$pb.TagNumber(4)
-  void clearEncType() => clearField(4);
+  void clearEncType() => $_clearField(4);
 
   @$pb.TagNumber(5)
   $core.String get description => $_getSZ(4);
@@ -1036,7 +1038,7 @@ class SOCKS5Config extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   $core.bool hasDescription() => $_has(4);
   @$pb.TagNumber(5)
-  void clearDescription() => clearField(5);
+  void clearDescription() => $_clearField(5);
 }
 
 class SOCKS5List extends $pb.GeneratedMessage {
@@ -1080,7 +1082,7 @@ class SOCKS5List extends $pb.GeneratedMessage {
   static SOCKS5List? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.List<SOCKS5Config> get sOCKS5Configs => $_getList(0);
+  $pb.PbList<SOCKS5Config> get sOCKS5Configs => $_getList(0);
 }
 
 class MDNSServiceList extends $pb.GeneratedMessage {
@@ -1124,7 +1126,7 @@ class MDNSServiceList extends $pb.GeneratedMessage {
   static MDNSServiceList? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.List<MDNSService> get mDNSServices => $_getList(0);
+  $pb.PbList<MDNSService> get mDNSServices => $_getList(0);
 }
 
 class TokenModel extends $pb.GeneratedMessage {
@@ -1214,7 +1216,7 @@ class TokenModel extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $core.bool hasRunId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearRunId() => clearField(1);
+  void clearRunId() => $_clearField(1);
 
   @$pb.TagNumber(2)
   $core.String get host => $_getSZ(1);
@@ -1223,7 +1225,7 @@ class TokenModel extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $core.bool hasHost() => $_has(1);
   @$pb.TagNumber(2)
-  void clearHost() => clearField(2);
+  void clearHost() => $_clearField(2);
 
   @$pb.TagNumber(3)
   $core.int get tcpPort => $_getIZ(2);
@@ -1232,7 +1234,7 @@ class TokenModel extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   $core.bool hasTcpPort() => $_has(2);
   @$pb.TagNumber(3)
-  void clearTcpPort() => clearField(3);
+  void clearTcpPort() => $_clearField(3);
 
   @$pb.TagNumber(4)
   $core.int get kcpPort => $_getIZ(3);
@@ -1241,7 +1243,7 @@ class TokenModel extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   $core.bool hasKcpPort() => $_has(3);
   @$pb.TagNumber(4)
-  void clearKcpPort() => clearField(4);
+  void clearKcpPort() => $_clearField(4);
 
   @$pb.TagNumber(5)
   $core.int get tlsPort => $_getIZ(4);
@@ -1250,7 +1252,7 @@ class TokenModel extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   $core.bool hasTlsPort() => $_has(4);
   @$pb.TagNumber(5)
-  void clearTlsPort() => clearField(5);
+  void clearTlsPort() => $_clearField(5);
 
   @$pb.TagNumber(6)
   $core.int get grpcPort => $_getIZ(5);
@@ -1259,7 +1261,7 @@ class TokenModel extends $pb.GeneratedMessage {
   @$pb.TagNumber(6)
   $core.bool hasGrpcPort() => $_has(5);
   @$pb.TagNumber(6)
-  void clearGrpcPort() => clearField(6);
+  void clearGrpcPort() => $_clearField(6);
 
   @$pb.TagNumber(7)
   $core.int get uDPApiPort => $_getIZ(6);
@@ -1268,7 +1270,7 @@ class TokenModel extends $pb.GeneratedMessage {
   @$pb.TagNumber(7)
   $core.bool hasUDPApiPort() => $_has(6);
   @$pb.TagNumber(7)
-  void clearUDPApiPort() => clearField(7);
+  void clearUDPApiPort() => $_clearField(7);
 
   @$pb.TagNumber(8)
   $core.int get kCPApiPort => $_getIZ(7);
@@ -1277,10 +1279,10 @@ class TokenModel extends $pb.GeneratedMessage {
   @$pb.TagNumber(8)
   $core.bool hasKCPApiPort() => $_has(7);
   @$pb.TagNumber(8)
-  void clearKCPApiPort() => clearField(8);
+  void clearKCPApiPort() => $_clearField(8);
 
   @$pb.TagNumber(9)
-  $core.List<$core.String> get permission => $_getList(8);
+  $pb.PbList<$core.String> get permission => $_getList(8);
 }
 
 

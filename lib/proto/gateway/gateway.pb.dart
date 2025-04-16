@@ -2,7 +2,7 @@
 //  Generated code. Do not modify.
 //  source: proto/gateway/gateway.proto
 //
-// @dart = 2.12
+// @dart = 3.3
 
 // ignore_for_file: annotate_overrides, camel_case_types, comment_references
 // ignore_for_file: constant_identifier_names, library_prefixes
@@ -12,6 +12,8 @@
 import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
+
+export 'package:protobuf/protobuf.dart' show GeneratedMessageGenericExtensions;
 
 class Token extends $pb.GeneratedMessage {
   factory Token({
@@ -60,7 +62,7 @@ class Token extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $core.bool hasValue() => $_has(0);
   @$pb.TagNumber(1)
-  void clearValue() => clearField(1);
+  void clearValue() => $_clearField(1);
 }
 
 class LoginResponse extends $pb.GeneratedMessage {
@@ -120,7 +122,7 @@ class LoginResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $core.bool hasCode() => $_has(0);
   @$pb.TagNumber(1)
-  void clearCode() => clearField(1);
+  void clearCode() => $_clearField(1);
 
   @$pb.TagNumber(2)
   $core.String get message => $_getSZ(1);
@@ -129,7 +131,7 @@ class LoginResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $core.bool hasMessage() => $_has(1);
   @$pb.TagNumber(2)
-  void clearMessage() => clearField(2);
+  void clearMessage() => $_clearField(2);
 
   @$pb.TagNumber(3)
   $core.bool get loginStatus => $_getBF(2);
@@ -138,7 +140,7 @@ class LoginResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   $core.bool hasLoginStatus() => $_has(2);
   @$pb.TagNumber(3)
-  void clearLoginStatus() => clearField(3);
+  void clearLoginStatus() => $_clearField(3);
 }
 
 

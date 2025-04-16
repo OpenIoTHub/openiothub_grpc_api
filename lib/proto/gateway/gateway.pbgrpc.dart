@@ -2,7 +2,7 @@
 //  Generated code. Do not modify.
 //  source: proto/gateway/gateway.proto
 //
-// @dart = 2.12
+// @dart = 3.3
 
 // ignore_for_file: annotate_overrides, camel_case_types, comment_references
 // ignore_for_file: constant_identifier_names, library_prefixes
@@ -67,12 +67,12 @@ abstract class GatewayLoginManagerServiceBase extends $grpc.Service {
         ($1.LoginResponse value) => value.writeToBuffer()));
   }
 
-  $async.Future<$1.LoginResponse> checkGatewayLoginStatus_Pre($grpc.ServiceCall call, $async.Future<$0.Empty> request) async {
-    return checkGatewayLoginStatus(call, await request);
+  $async.Future<$1.LoginResponse> checkGatewayLoginStatus_Pre($grpc.ServiceCall $call, $async.Future<$0.Empty> $request) async {
+    return checkGatewayLoginStatus($call, await $request);
   }
 
-  $async.Future<$1.LoginResponse> loginServerByToken_Pre($grpc.ServiceCall call, $async.Future<$1.Token> request) async {
-    return loginServerByToken(call, await request);
+  $async.Future<$1.LoginResponse> loginServerByToken_Pre($grpc.ServiceCall $call, $async.Future<$1.Token> $request) async {
+    return loginServerByToken($call, await $request);
   }
 
   $async.Future<$1.LoginResponse> checkGatewayLoginStatus($grpc.ServiceCall call, $0.Empty request);
